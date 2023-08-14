@@ -1,0 +1,73 @@
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#searchPage>p {
+    font-size: 4em;
+    text-align: center;
+    padding: 30px;
+}
+#searchIcon {
+    width: 30px;
+}
+select {
+    border: 1px solid #ccc;
+    width: 160px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+#line1 {
+    border: 1px solid #ccc;
+    width: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#searchIcon {
+    width: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.searchList {
+    display: flex;
+    justify-content: space-between;
+}
+.storeName {
+    font-size: 40px;
+    padding-bottom: 10px;
+}   
+.storeAddress {
+    font-size: 23px;
+    color: #737373;
+}
+.storeTell {
+    font-size: 23px;
+    color: #444;
+}
+#storeBtn {
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    border-radius: 100%;
+    font-size: 35px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;
+    /* margin-left: 30px; */
+}
+#searchBox {
+    display: flex;
+}
+#lineCol {
+    height: 600px;
+    border: 1px solid #ccc;
+    margin: 30px;
+}
+#map {
+    width: 650px;
+    margin: 50px;
+}

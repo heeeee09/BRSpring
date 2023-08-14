@@ -1,0 +1,105 @@
+#joinBox {
+    /* border: 5px solid #555; */
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#join_info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    width: 320px;
+    display: inline-block;
+}
+.labels {
+    color: #402022;
+    font-size: 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 30px;
+    
+}
+#joinBox p {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: #402022;
+}
+.infoBox {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    /* border:solid black thin */
+    
+
+}
+input[type=text] {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+input[type=password] {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+input[type=date] {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding-left: 12px;
+    font-size: 20px;
+    color: #7c7c7c;
+}
+input[type=radio] {
+    width: 80px;
+    height: 50px;
+    border: 1px solid #ccc;
+}
+#genderM {
+    font-size: 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 170px;
+}
+#genderF {
+    font-size: 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 170px;
+}
+input::placeholder {
+    font-size: 20px;
+}
+#button {
+    padding-top: 20px;
+    padding-bottom: 100px;
+}         
+button {
+    width: 300px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;
+}
+
+#line {
+    border: 1px solid #ccc;
+    width: 800px;
+}
+
+#id ,#pw{
+    display: flex;
+    align-items: center;
+}

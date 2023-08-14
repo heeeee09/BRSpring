@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="MemberMapper">
+ 	<resultMap type="kr.co.baskinrobbins.member.domain.BRMember" id="memberResultMap">
+ 		<id 	property="memberId" column="MEMBER_ID"/>
+ 		<result property="memberPw" column="MEMBER_PWD"/>
+ 		<result property="memberName"   column="MEMBER_NAME"/>
+ 		<result property="memberBirth"   column="MEMBER_BIRTHDAY"/>
+ 		<result property="memberGender"   column="MEMBER_GENDER"/>
+ 		<result property="memberEmail"   column="MEMBER_EMAIL"/>
+ 		<result property="memberPhone"   column="MEMBER_PHONE"/>
+ 		<result property="memberAddress"   column="MEMBER_ADDRESS"/>
+ 	</resultMap>
+ 	<insert id="insertMember">
+ 		INSERT INTO BR_MEMBER_TBL VALUES(#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberGender}, #{memberEmail}, #{memberPhone}, #{memberAddress})
+ 	</insert> 	
+ 	 	<update id="updateMember">
+ 		UPDATE BR_MEMBER_TBL SET MEMBER_PWD=#{memberPw}, MEMBER_EMAIL=#{memberEmail}, MEMBER_PHONE=#{memberPhone}, MEMBER_ADDRESS=#{memberAddress} WHERE MEMBER_ID=#{memberId}
+ 	</update>
+ 	<select id="checkLogin" resultMap="memberResultMap">
+		SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=#{memberId } AND MEMBER_PWD=#{memberPw }
+ 	</select> 	
+ 		<select id="showOneById" resultMap="memberResultMap">
+		SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=#{memberId}
+	</select> 
+</mapper>

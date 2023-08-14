@@ -1,0 +1,193 @@
+#basketBox {
+    padding: 30px;
+    text-align: center;
+    height: 900px;
+}
+td:first-child {
+width: 25%;
+}
+p {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    color: #402022;
+    padding: 30px;
+}
+.orderP {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: #402022;
+    padding: 30px;
+
+}
+#userInfoBox {
+    font-family: 'Nanum Gothic', sans-serif;
+    /* border-bottom: none; */
+    /* border: 3px solid #402022; */
+    border-collapse: collapse;
+    width: 90%;
+    font-size: 1.8em;
+    text-align: left;
+}
+.lineCol {
+    background-color: #f3f3f3;
+    border-right: 3px solid #402022;
+    color: #402022;
+    text-align: center;
+}
+#userInfoBox td {
+    border-bottom: 3px solid #402022;
+    border-top: 3px solid #402022;
+    padding: 40px;
+}
+#tellCheck {
+    width: 20px;
+    height: 20px;
+    margin-left: 40px;
+}
+#safeTell {
+    font-size: 25px;
+    color: #6d6d6d;
+}
+#tellModify {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+}
+.modifyBtn {
+    background-color: #F04DA3;
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 23px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    cursor: pointer !important;
+}
+
+
+#choose {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 30px;
+    text-align: left;
+    color: #F04DA3;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+select {
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 120px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    border-color: #ccc;
+}
+
+table{
+    padding: 10px;
+    margin: auto;
+    width: 1100px;
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+#modify {
+    background-color: #402022;
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 23px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    cursor: pointer !important;
+}
+#menucheck td {
+    width: 250px;
+    font-size: 23px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #402022;
+}
+#menucheck th {
+    padding-bottom: 20px;
+    color: #F04DA3;
+    font-weight: lighter;
+    font-size: 30px;
+    border-bottom: 3px solid #402022;
+}
+.delete {
+    font-size: 30px;
+}
+#total {
+    padding: 10px;
+    width: 1100px;
+    font-size: 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    display: flex;
+    justify-content: end;
+}
+#paymentTable {
+    font-family: 'Nanum Gothic', sans-serif;
+    /* border-bottom: none; */
+    /* border: 3px solid #402022; */
+    border-collapse: collapse;
+    width: 90%;
+    font-size: 1.8em;
+    text-align: left;
+}
+.lineCol {
+    background-color: #f3f3f3;
+    border-right: 3px solid #402022;
+    color: #402022;
+    text-align: center;
+}
+#paymentTable td {
+    border-bottom: 3px solid #402022;
+    border-top: 3px solid #402022;
+    padding: 40px;
+}
+#paymentTable span {
+    color: #F04DA3;
+    padding-left: 40px;
+}
+#tellCheck {
+    width: 30px;
+    margin-left: 40px;
+}
+#safeTell {
+    font-size: 25px;
+    color: #6d6d6d;
+}
+.radioBtn {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    /* margin-left: 10px; */
+}
+#orderBtnBox {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+#orderBtn {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    width: 300px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;
+}         

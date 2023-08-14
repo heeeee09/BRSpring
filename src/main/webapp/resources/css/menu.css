@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+#menuTitle {
+    width: 500px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #FFD65B;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.menus {
+	width : 1000px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.menus img {
+    height: 300px;
+}
+.iceName {
+    font-size: 30px;
+    padding: 10px;
+}
+.iceType {
+    font-size: 20px;
+    color: #46A2E3;
+    /* padding: 5px; */
+}
+.orderBtn {
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 20px;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;
+    margin-bottom: 50px;
+}
+#menuCategory{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 40px;
+    font-family: 'KOTRAHOPE';
+}
+.menuCategory:hover {
+    color: #F04DA3;
+}
+#menuBox{
+	display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+

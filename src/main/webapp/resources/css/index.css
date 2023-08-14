@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'KNPSBandali-Regular00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KNPSBandali-Regular00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.mains {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+#monthFlavor {
+    width: 100%;
+    height: 400px;
+    background-size: cover 100%;
+}
+
+#main2 {
+    width: 100%;
+    height: 436px;
+    --background-color: darkgray;
+    background-size: cover 100%;
+}
+
+#main3 {
+    height: 400px;
+    justify-content: center;
+}
+
+.mainHeaders {
+    padding: 8px;
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: bold;
+    font-family: 'KNPSBandali-Regular00';
+}
+
+.mainHeaders>p {
+    padding-top: 50px;
+}
+#bestMenu{
+    background: linear-gradient(to bottom, #ff83cf, #7ccdff);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+#withBr {
+    color: #544037;
+}
+
+.bestFlavors {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bfImg {
+    width: 80%;
+    height: 340px;
+    justify-content: center;
+}
+
+.img-caption {
+    height: 40px;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#main4 {
+	
+    /* background-color: rgb(63, 200, 222); */
+    height: 200px;
+    /* display: flex; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    /* background-color: rgb(255, 220, 234); */
+    background: rgb(243, 233, 233);
+    padding-left: 30px;
+    align-items: flex-end;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.footers {
+    align-items: flex-end;
+}
+
+#bottomMenu1 {
+    padding-bottom: 8px;
+}
+
+#bottomMenu1 li {
+    display: inline;
+    list-style: none;
+    font-size: 23px;
+    padding: 4px;
+}
+
+#bottomMenu2 li {
+    list-style: none;
+    font-size: 18px;
+}
+
+
+* {
+    box-sizing: border-box
+}
+
+.slides {
+    display: none
+}
+
+img {
+    vertical-align: middle;
+}
+
+#eventImg {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
+}
