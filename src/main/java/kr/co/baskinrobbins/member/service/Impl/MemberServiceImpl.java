@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.baskinrobbins.member.domain.BRMember;
+import kr.co.baskinrobbins.member.domain.Member;
 import kr.co.baskinrobbins.member.service.MemberService;
 import kr.co.baskinrobbins.member.store.MemberStore;
 
@@ -17,54 +17,54 @@ public class MemberServiceImpl implements MemberService{
 	private SqlSession SqlSession;
 	
 	@Override
-	public int registerMember(BRMember member) {
+	public int registerMember(Member member) {
 		int result = mStore.insertMember(SqlSession, member);
 		return result;
 	}
 
 	@Override
-	public int modifyMember(BRMember member) {
+	public int modifyMember(Member member) {
 		int result = mStore.updateMember(SqlSession, member);
 		return result;
 	}
 
 	@Override
-	public int deleteMember(String memberId, BRMember mOne) {
+	public int deleteMember(String memberId, Member mOne) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public BRMember checkLogin(BRMember member) {
-		BRMember result = mStore.checkLogin(SqlSession, member);
+	public Member checkLogin(Member member) {
+		Member result = mStore.checkLogin(SqlSession, member);
 		return result;
 	}
 
 	@Override
-	public Boolean userCheck(BRMember mOne) {
+	public Boolean userCheck(Member mOne) {
 		return null;
 	}
 
 	@Override
-	public BRMember findId(String memberId) {
+	public Member findId(String memberId) {
 		return null;
 	}
 
 	@Override
-	public BRMember findPw(BRMember member) {
+	public Member findPw(Member member) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int resetPw(BRMember member) {
+	public int resetPw(Member member) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public BRMember showOneById(String memberId) {
-		BRMember result = mStore.showOneById(SqlSession, memberId);
+	public Member showOneById(String memberId) {
+		Member result = mStore.showOneById(SqlSession, memberId);
 		return result;
 	}
 

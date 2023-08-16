@@ -50,7 +50,7 @@
 			        <p id="complite">정말 탈퇴하시겠습니까?<br>
 			        	탈퇴 후 취소할 수 없습니다.</p>
 			        <div id="closebtn">
-			        <button id="deleteBtn" type="submit" value="탈퇴하기">탈퇴하기</button>
+			        <button id="deleteBtn" type="submit" onclick="deleteBtn" value="탈퇴하기">탈퇴하기</button>
 			        <button type="button"><a href="/member/myPage.do">취소</a></button>
 			        </div>
 		        </form>
@@ -59,6 +59,12 @@
 	    </div>
 	    <script>
 		    <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
+	    function DeleteBtn = () => {
+	    			const noticeNo = '${notice.noticeNo}';
+			if(confirm("정말로 삭제하시겠습니까?")){
+				location.href = "/notice/delete.do?noticeNo="+noticeNo;
+			}
+		}
 	    </script>
 	</body>
 </html>

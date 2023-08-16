@@ -1,25 +1,25 @@
 package kr.co.baskinrobbins.member.service;
 
-import kr.co.baskinrobbins.member.domain.BRMember;
+import kr.co.baskinrobbins.member.domain.Member;
 
 public interface MemberService {
 
-	public int registerMember(BRMember member);
+	public int registerMember(Member member);
 
-	public int modifyMember(BRMember member);
+	public int modifyMember(Member member);
 
-	public int deleteMember(String memberId, BRMember mOne);
+	public int deleteMember(String memberId, Member mOne);
 
-	public BRMember checkLogin(BRMember member);
+	public Member checkLogin(Member member);
 
-	public Boolean userCheck(BRMember mOne);
+	public Boolean userCheck(Member mOne);
 
-	public BRMember findId(String memberId);
+	public Member findId(String memberId);
 	
-	public BRMember findPw(BRMember member);
+	public Member findPw(Member member);
 
-	public int resetPw(BRMember member);
+	public int resetPw(Member member);
 
-	public BRMember showOneById(String memberId);
+	public Member showOneById(String memberId);
 
 }

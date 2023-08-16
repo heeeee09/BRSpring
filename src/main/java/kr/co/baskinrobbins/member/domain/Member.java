@@ -1,6 +1,6 @@
 package kr.co.baskinrobbins.member.domain;
 
-public class BRMember {
+public class Member {
 	private String memberId;
 	private String memberPw;
 	private String memberName;
@@ -10,10 +10,10 @@ public class BRMember {
 	private String memberPhone;
 	private String memberAddress;
 
-	public BRMember() {
+	public Member() {
 	}
 
-	public BRMember(String memberId, String memberPw, String memberName, String memberBirth, String memberGender,
+	public Member(String memberId, String memberPw, String memberName, String memberBirth, String memberGender,
 			String memberEmail, String memberPhone, String memberAddress) {
 		super();
 		this.memberId = memberId;
@@ -26,13 +26,13 @@ public class BRMember {
 		this.memberAddress = memberAddress;
 	}
 
-	public BRMember(String memberId, String memberPw) {
+	public Member(String memberId, String memberPw) {
 		super();
 		this.memberId = memberId;
 		this.memberPw = memberPw;
 	}
 
-	public BRMember(String memberId, String memberPw, String memberEmail, String memberPhone,
+	public Member(String memberId, String memberPw, String memberEmail, String memberPhone,
 			String memberAddress) {
 		super();
 		this.memberId = memberId;
@@ -42,14 +42,14 @@ public class BRMember {
 		this.memberAddress = memberAddress;
 	}
 	
-	public BRMember(String memberId, String memberEmail, String memberPhone) {
+	public Member(String memberId, String memberEmail, String memberPhone) {
 		super();
 		this.memberId = memberId;
 		this.memberEmail = memberEmail;
 		this.memberPhone = memberPhone;
 	}
 
-	public BRMember(String memberEmail) {
+	public Member(String memberEmail) {
 		super();
 		this.memberEmail = memberEmail;
 	}

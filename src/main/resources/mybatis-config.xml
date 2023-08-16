@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="kr.co.baskinrobbins.member.domain.BRMember" alias="Member"/>
+		<typeAlias type="kr.co.baskinrobbins.member.domain.Member" alias="Member"/>
 	</typeAliases>
 	<!-- 메퍼 만들고 등록하기 -->
 	<mappers>

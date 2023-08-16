@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
-import jdk.nashorn.api.scripting.ScriptUtils;
-import kr.co.baskinrobbins.member.domain.BRMember;
+import kr.co.baskinrobbins.member.domain.Member;
 import kr.co.baskinrobbins.member.service.MemberService;
 
 @Controller
@@ -38,10 +37,10 @@ public class MemberController {
 			, @RequestParam("member-address") String memberAddress
 			, Model model) {
 		try {
-			BRMember member = new BRMember(memberId, memberPw, memberName, memberBirth, memberGender, memberEmail, memberPhone, memberAddress);
+			Member member = new Member(memberId, memberPw, memberName, memberBirth, memberGender, memberEmail, memberPhone, memberAddress);
 			int result = service.registerMember(member);
 			if(result > 0) {
-				model.addAttribute("msg", "È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+				model.addAttribute("msg", "íšŒì›ê°€ìž…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				model.addAttribute("url", "redirect:/index.jsp");
 				return "common/alert";
 			}else {
@@ -63,23 +62,23 @@ public class MemberController {
 			, @RequestParam("member-phone") String memberPhone
 			, @RequestParam("member-address") String memberAddress
 			, Model model) {
-		BRMember member = new BRMember(memberId, memberPw, memberEmail, memberPhone, memberAddress);
+		Member member = new Member(memberId, memberPw, memberEmail, memberPhone, memberAddress);
 		int result = service.modifyMember(member);
 		if(result > 0) {
-			model.addAttribute("title", "È¸¿ø Á¤º¸ ¼öÁ¤ ¿Ï·á");
-			model.addAttribute("msg", "È¸¿ø Á¤º¸ ¼öÁ¤À» ¿Ï·áÇß½À´Ï´Ù.");
+			model.addAttribute("title", "íšŒì› ì •ë³´ ìˆ˜ì • ì™„ë£Œ");
+			model.addAttribute("msg", "íšŒì› ì •ë³´ ìˆ˜ì •ì„ ì™„ë£Œí–ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("urlIndex", "/index.jsp");
-			model.addAttribute("btnMsgIndex", "¸ÞÀÎÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsgIndex", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
 			model.addAttribute("urlBack", "/member/myPage.do");
-			model.addAttribute("btnMsgBack", "¸¶ÀÌ ÆäÀÌÁö È­¸éÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsgBack", "ë§ˆì´ íŽ˜ì´ì§€ í™”ë©´ìœ¼ë¡œ ì´ë™");
 			return "common/serviceResult.do";			
 		}else {
-			model.addAttribute("title", "È¸¿ø Á¤º¸ ¼öÁ¤ ½ÇÆÐ");
-			model.addAttribute("msg", "È¸¿ø Á¤º¸ ¼öÁ¤À» ¿Ï·áÇÏÁö ¸øÇß½À´Ï´Ù.");
+			model.addAttribute("title", "íšŒì› ì •ë³´ ìˆ˜ì • ì‹¤íŒ¨");
+			model.addAttribute("msg", "íšŒì› ì •ë³´ ìˆ˜ì •ì„ ì™„ë£Œí•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("urlIndex", "redirect:/index.jsp");
-			model.addAttribute("btnMsgIndex", "¸ÞÀÎÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsgIndex", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
 			model.addAttribute("urlBack", "/member/modify.do");
-			model.addAttribute("btnMsgBack", "ÀÌÀü È­¸éÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsgBack", "ì´ì „ í™”ë©´ìœ¼ë¡œ ì´ë™");
 			return "common/serviceResult";
 		}
 	}
@@ -98,8 +97,8 @@ public class MemberController {
 			, Model model
 			) {
 		try {
-			BRMember member = new BRMember(memberId, memberPw);
-			BRMember result = service.checkLogin(member);
+			Member member = new Member(memberId, memberPw);
+			Member result = service.checkLogin(member);
 			
 			if(result != null) {
 				System.out.println(result.toString());
@@ -110,12 +109,12 @@ public class MemberController {
 //				model.addAttribute("memberName", result.getMemberName());
 				return "redirect:/index.jsp";
 			}else {
-				model.addAttribute("title", "·Î±×ÀÎ ½ÇÆÐ");
-				model.addAttribute("msg", "¾ÆÀÌµð ¶Ç´Â ºñ¹Ð¹øÈ£°¡ Æ²¸³´Ï´Ù.");
+				model.addAttribute("title", "ë¡œê·¸ì¸ ì‹¤íŒ¨");
+				model.addAttribute("msg", "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.");
 				model.addAttribute("urlIndex", "redirect:/index.jsp");
-				model.addAttribute("btnMsgIndex", "¸ÞÀÎÀ¸·Î ÀÌµ¿");
+				model.addAttribute("btnMsgIndex", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
 				model.addAttribute("urlBack", "/member/login.do");
-				model.addAttribute("btnMsgBack", "·Î±×ÀÎ È­¸éÀ¸·Î ÀÌµ¿");
+				model.addAttribute("btnMsgBack", "ë¡œê·¸ì¸ í™”ë©´ìœ¼ë¡œ ì´ë™");
 				return "common/serviceResult";
 			}
 		} catch (Exception e) {
@@ -140,10 +139,10 @@ public class MemberController {
 //			}
 			return "redirect:/index.jsp";
 		}else {
-			model.addAttribute("title", "·Î±×¾Æ¿ô ½ÇÆÐ");
-			model.addAttribute("msg", "·Î±×¾Æ¿ôÀ» ¿Ï·áÇÏÁö ¸øÇß½À´Ï´Ù.");
+			model.addAttribute("title", "ë¡œê·¸ì•„ì›ƒ ì‹¤íŒ¨");
+			model.addAttribute("msg", "ë¡œê·¸ì•„ì›ƒì„ ì™„ë£Œí•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
 			model.addAttribute("url", "redirect:/index.jsp");
-			model.addAttribute("btnMsg", "¸ÞÀÎÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsg", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
 			return "common/serviceResultOneBtn";
 		}
 	}
@@ -152,34 +151,52 @@ public class MemberController {
 	public String showMyPage(
 			@RequestParam("memberId") String memberId
 			, Model model) {
-		BRMember mOne = service.showOneById(memberId);
+		Member mOne = service.showOneById(memberId);
 		if(mOne != null) {
 			model.addAttribute("member", mOne); 
 			return "member/myPage";
 		}else {
-			model.addAttribute("title", "¸¶ÀÌÆäÀÌÁö Á¶È¸ ½ÇÆÐ");
-			model.addAttribute("msg", "µ¥ÀÌÅÍ¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+			model.addAttribute("title", "ë§ˆì´íŽ˜ì´ì§€ ì¡°íšŒ ì‹¤íŒ¨");
+			model.addAttribute("msg", "ë°ì´í„°ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			model.addAttribute("url", "redirect:/index.jsp");
-			model.addAttribute("btnMsg", "¸ÞÀÎÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsg", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
 			return "common/serviceResultOneBtn";
 		}
 	}
 	
-	@RequestMapping(value="member/modify.do", method = RequestMethod.GET)
+	@RequestMapping(value="/member/modify.do", method = RequestMethod.GET)
 	public String showMyInfoModify(
 			@RequestParam("memberId") String memberId
 			, Model model
 			) {
-		BRMember mOne = service.showOneById(memberId);
+		Member mOne = service.showOneById(memberId);
 		if(mOne != null) {
 			System.out.println(mOne.toString());
 			model.addAttribute("member", mOne); 
 			return "member/userInfoModify";
 		}else {
-			model.addAttribute("title", "¸¶ÀÌÆäÀÌÁö Á¶È¸ ½ÇÆÐ");
-			model.addAttribute("msg", "µ¥ÀÌÅÍ¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+			model.addAttribute("title", "ë§ˆì´íŽ˜ì´ì§€ ì¡°íšŒ ì‹¤íŒ¨");
+			model.addAttribute("msg", "ë°ì´í„°ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			model.addAttribute("url", "redirect:/index.jsp");
-			model.addAttribute("btnMsg", "¸ÞÀÎÀ¸·Î ÀÌµ¿");
+			model.addAttribute("btnMsg", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
+			return "common/serviceResultOneBtn";
+		}
+	}
+	
+	@RequestMapping(value="/member/delete.do", method = RequestMethod.GET)
+	public String showDeleteMember(
+			@RequestParam("memberId") String memberId
+			, Model model) {
+		Member mOne = service.showOneById(memberId);
+		if(mOne != null) {
+			System.out.println(mOne.toString());
+			model.addAttribute("member", mOne); 
+			return "member/accountDelete";
+		}else {
+			model.addAttribute("title", "íŽ˜ì´ì§€ ì´ë™ ì‹¤íŒ¨");
+			model.addAttribute("msg", "ë°ì´í„°ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+			model.addAttribute("url", "redirect:/index.jsp");
+			model.addAttribute("btnMsg", "ë©”ì¸ìœ¼ë¡œ ì´ë™");
 			return "common/serviceResultOneBtn";
 		}
 	}
@@ -187,17 +204,17 @@ public class MemberController {
 		
 }
 /*
- * 1. È¸¿ø°¡ÀÔ (Á¢¼Ó -> ¿Ï, ÀÔ·Â -> ¿Ï)
- * 2. ·Î±×ÀÎ (Á¢¼Ó -> ¿Ï, ÀÔ·Â -> ¿Ï)
- * 3. ·Î±×¾Æ¿ô ¿Ï (true/false -> ½ÇÆÐ, sessions.removeAttribute·Î ·Î±×¾Æ¿ô ¼º°ø)
- * 4. ¸¶ÀÌÆäÀÌÁö (Á¢¼Ó -> ¿Ï, Á¶È¸ -> ¿Ï, ¼öÁ¤)
- * 5. È¸¿øÅ»Åð
- * 6. ¾ÆÀÌµð, ºñ¹Ð¹øÈ£ Ã£±â
+ * 1. íšŒì›ê°€ìž… (ì ‘ì† -> ì™„, ìž…ë ¥ -> ì™„)
+ * 2. ë¡œê·¸ì¸ (ì ‘ì† -> ì™„, ìž…ë ¥ -> ì™„)
+ * 3. ë¡œê·¸ì•„ì›ƒ ì™„ (true/false -> ì‹¤íŒ¨, sessions.removeAttributeë¡œ ë¡œê·¸ì•„ì›ƒ ì„±ê³µ)
+ * 4. ë§ˆì´íŽ˜ì´ì§€ (ì ‘ì† -> ì™„, ì¡°íšŒ -> ì™„, ìˆ˜ì • -> ì™„)
+ * 5. íšŒì›íƒˆí‡´
+ * 6. ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
  * 
- * 7. 1:1 ¹®ÀÇ ³»¿ª
- * 8. 1:1 ¹®ÀÇ »ó¼¼º¸±â
- * 9. 1:1 ¹®ÀÇ ÀÛ¼º
- * 10. 1:1 ¹®ÀÇ »èÁ¦
+ * 7. 1:1 ë¬¸ì˜ ë‚´ì—­
+ * 8. 1:1 ë¬¸ì˜ ìƒì„¸ë³´ê¸°
+ * 9. 1:1 ë¬¸ì˜ ìž‘ì„±
+ * 10. 1:1 ë¬¸ì˜ ì‚­ì œ
  * 
  */
 
