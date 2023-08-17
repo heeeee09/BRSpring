@@ -15,7 +15,7 @@ label {
 }
 .inputBox {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     font-size: 35px;
     font-family: 'Nanum Gothic', sans-serif;
@@ -67,11 +67,14 @@ button {
     align-items: center;
     justify-content: center;
 }
-#infoSearch{
+#infoSearch {
 	display: flex;
 	justify-content: center;
 	margin-top: 5px;
 	font-size: 20px;
+}
+#infoSearch:hover {
+	color: #F04DA3;
 }
 #findBox{
     display: flex;
