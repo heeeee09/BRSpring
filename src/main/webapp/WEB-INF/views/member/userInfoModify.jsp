@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 정보 수정</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/join.css">
-    <link rel="stylesheet" href="../resources/css/reset.css">
-    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="../resources/css/member/join.css">
+    <link rel="stylesheet" href="../resources/css/common/reset.css">
+    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
     <style>
         #prevBtn {
             background-color: #402022;
@@ -32,7 +32,7 @@
 	                <div id="line"></div>
 	                <div id="pw" class="infoBox">
 	                    <label for="user-pw" class="labels">비밀번호</label>
-	                    <input type="password" name="member-pw" placeholder="  수정할 비밀번호를 입력해주세요">
+	                    <input type="password" name="memberPw" placeholder="  수정할 비밀번호를 입력해주세요">
 	                </div>
 	                <div id="line"></div>
 	                <div id="pw-confirm" class="infoBox">
@@ -59,17 +59,17 @@
 	                <div id="line"></div>
 	                <div id="email" class="infoBox">
 	                    <label for="user-email" class="labels">이메일</label>
-	                    <input type="text" name="member-email" value="${member.memberEmail }">
+	                    <input type="text" name="memberEmail" value="${member.memberEmail }">
 	                </div>
 	                <div id="line"></div>
 	                <div id="tell" class="infoBox">
 	                    <label for="uer-tell" class="labels">연락처</label>
-	                    <input type="text" name="member-phone" value="${member.memberPhone }">
+	                    <input type="text" name="memberPhone" value="${member.memberPhone }">
 	                </div>
 	                <div id="line"></div>
 	                <div id="address" class="infoBox">
 	                    <label for="uer-address" class="labels">주소</label>
-	                    <input type="text" name="member-address"  value="${member.memberAddress }">
+	                    <input type="text" name="memberAddress"  value="${member.memberAddress }">
 	                </div>
 	                <div id="line"></div>
 	            </div>

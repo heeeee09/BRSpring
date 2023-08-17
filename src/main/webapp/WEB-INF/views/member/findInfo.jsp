@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디 비밀번호 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/inputInfo.css">
-    <link rel="stylesheet" href="../resources/css/reset.css">
-    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="../resources/css/member/inputInfo.css">
+    <link rel="stylesheet" href="../resources/css/common/reset.css">
+    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 </head>
 
 <body>
@@ -19,6 +19,10 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <main>
             <section id="login-field">
+            	<div class="msg">
+	            <p>아이디나 비밀번호가 기억나지 않으세요?</p>
+	            <p>인증을 통해 아이디나 비밀번호를 찾을 수 있습니다.</p>
+            	</div>
 	            <div id="findBox">
 	            	<button id="loginbtn" type="button" onclick="findId()">아이디 찾기</button>
 	                <button id="loginbtn" type="button" onclick="findPw()">비밀번호 찾기</button>

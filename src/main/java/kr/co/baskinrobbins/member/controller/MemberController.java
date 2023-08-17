@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,17 +28,9 @@ public class MemberController {
 	
 	@RequestMapping(value="/member/register.do", method = RequestMethod.POST)
 	public String registerMember(
-			  @RequestParam("member-id") String memberId
-			, @RequestParam("member-pw") String memberPw
-			, @RequestParam("member-name") String memberName
-			, @RequestParam("member-birthday") String memberBirth
-			, @RequestParam("member-gender") String memberGender
-			, @RequestParam("member-email") String memberEmail
-			, @RequestParam("member-phone") String memberPhone
-			, @RequestParam("member-address") String memberAddress
+			  @ModelAttribute Member member
 			, Model model) {
 		try {
-			Member member = new Member(memberId, memberPw, memberName, memberBirth, memberGender, memberEmail, memberPhone, memberAddress);
 			int result = service.registerMember(member);
 			if(result > 0) {
 				model.addAttribute("msg", "회원가입이 완료되었습니다.");
@@ -56,13 +49,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/member/modify.do", method = RequestMethod.POST)
 	public String modifyMember(
-			  @RequestParam("member-id") String memberId
-			, @RequestParam("member-pw") String memberPw
-			, @RequestParam("member-email") String memberEmail
-			, @RequestParam("member-phone") String memberPhone
-			, @RequestParam("member-address") String memberAddress
+				@ModelAttribute Member member
 			, Model model) {
-		Member member = new Member(memberId, memberPw, memberEmail, memberPhone, memberAddress);
 		int result = service.modifyMember(member);
 		if(result > 0) {
 			model.addAttribute("title", "회원 정보 수정 완료");
@@ -91,15 +79,13 @@ public class MemberController {
 	
 	@RequestMapping(value="/member/login.do", method = RequestMethod.POST)
 	public String checkLogin(HttpServletRequest request,
-			  @RequestParam("member-id") String memberId
-			, @RequestParam("member-pw") String memberPw
+				@ModelAttribute Member member
 			, HttpSession session
 			, Model model
 			) {
 		try {
-			Member member = new Member(memberId, memberPw);
+			System.out.println(member.toString());
 			Member result = service.checkLogin(member);
-			
 			if(result != null) {
 				System.out.println(result.toString());
 				System.out.println(result.getMemberId());
@@ -131,8 +117,9 @@ public class MemberController {
 			, Model model
 			) {
 		if(session != null) {
-			sessions.removeAttribute("memberId");
-			sessions.removeAttribute("memberName");
+			sessions.invalidate();
+//			sessions.removeAttribute("memberId");
+//			sessions.removeAttribute("memberName");
 			session.setComplete();
 			System.out.println(session.isComplete());
 //			if(session.isComplete()) {
@@ -201,6 +188,45 @@ public class MemberController {
 		}
 	}
 	
+	@RequestMapping(value="/member/delete.do", method = RequestMethod.POST)
+	public String delteMember(
+			@ModelAttribute Member member
+			, Model model
+			) {
+		System.out.println(member.toString());
+		int result = service.deleteMember(member.getMemberId());
+		if(result > 0) {
+			return "redirect:/member/logout.do";
+		}else {
+			model.addAttribute("title", "회원 탈퇴 실패");
+			model.addAttribute("msg", "회원 탈퇴를 완료하지 못했습니다.");
+			model.addAttribute("urlIndex", "redirect:/index.jsp");
+			model.addAttribute("btnMsgIndex", "메인으로 이동");
+			model.addAttribute("urlBack", "/member/myPage.do"+member.getMemberId());
+			model.addAttribute("btnMsgBack", "마이페이지 화면으로 이동");
+			return "common/serviceResult";
+		}
+	}
+	
+	@RequestMapping(value="/member/findInfo.do", method=RequestMethod.GET)
+	public String showFindMemberInfo() {
+		return "member/findInfo";
+	}
+	
+	@RequestMapping(value="/member/findId.do", method = RequestMethod.GET)
+	public String showFindMemberId() {
+		return "member/findId";
+	}
+	
+	public void findMemberId(
+			@ModelAttribute Member member
+			, Model model
+			) {
+		Member mOne = service.searchMemberInfo(member);
+		if(mOne != null) {
+			
+		}
+	}
 		
 }
 /*
@@ -208,8 +234,8 @@ public class MemberController {
  * 2. 로그인 (접속 -> 완, 입력 -> 완)
  * 3. 로그아웃 완 (true/false -> 실패, sessions.removeAttribute로 로그아웃 성공)
  * 4. 마이페이지 (접속 -> 완, 조회 -> 완, 수정 -> 완)
- * 5. 회원탈퇴
- * 6. 아이디, 비밀번호 찾기
+ * 5. 회원탈퇴 -> 완
+ * 6. 아이디, 비밀번호 찾기 (선택 -> 완, 아이디 -> ing, 비밀번호)
  * 
  * 7. 1:1 문의 내역
  * 8. 1:1 문의 상세보기

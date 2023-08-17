@@ -5,23 +5,52 @@ import org.apache.ibatis.session.SqlSession;
 import kr.co.baskinrobbins.member.domain.Member;
 
 public interface MemberStore {
-	
-	public int insertMember(SqlSession sqlSession, Member member);
+	/**
+	 * 회원가입
+	 * @param sqlSession
+	 * @param member
+	 * @return
+	 */
+	public int insertMember(SqlSession session, Member member);
 
-	public int updateMember(SqlSession sqlSession, Member member);
+	/**
+	 * 회원 정보 수정
+	 * @param sqlSession
+	 * @param member
+	 * @return
+	 */
+	public int updateMember(SqlSession session, Member member);
 
-	public int deleteMember(SqlSession sqlSession, Member mOne);
+	/**
+	 * 회원 탈퇴
+	 * @param sqlSession
+	 * @param memberId
+	 * @return
+	 */
+	public int deleteMember(SqlSession session, String memberId);
 
-	public Member checkLogin(SqlSession sqlSession, Member member);
+	/**
+	 * 회원 탈퇴
+	 * @param sqlSession
+	 * @param mOne
+	 * @return
+	 */
+	public Member checkLogin(SqlSession session, Member member);
 
-	public Member checkPassword(SqlSession sqlSession, Member mOne);
+	/**
+	 * 아이디로 정보 검색
+	 * @param sqlSession
+	 * @param memberId
+	 * @return
+	 */
+	public Member showOneById(SqlSession session, String memberId);
 
-	public Member findId(SqlSession sqlSession, String memberId);
-	
-	public Member findPw(SqlSession sqlSession, Member member);
-
-	public int resetPw(SqlSession sqlSession, Member member);
-
-	public Member showOneById(SqlSession sqlSession, String memberId);
+	/**
+	 * 입력한 정보로 멤버 아이디 찾기
+	 * @param session
+	 * @param member
+	 * @return
+	 */
+	public Member selectOneMemberId(SqlSession session, Member member);
 	
 }

@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./resources/css/index.css">
-    <link rel="stylesheet" href="./resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="./resources/css/common/reset.css">
+    <link rel="stylesheet" href="/resources/css/common/logo_nav_footer.css">
 </head>
 <body>
     <div id="container">

@@ -14,57 +14,42 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private MemberStore mStore;
 	@Autowired
-	private SqlSession SqlSession;
+	private SqlSession session;
 	
 	@Override
 	public int registerMember(Member member) {
-		int result = mStore.insertMember(SqlSession, member);
+		int result = mStore.insertMember(session, member);
 		return result;
 	}
 
 	@Override
 	public int modifyMember(Member member) {
-		int result = mStore.updateMember(SqlSession, member);
+		int result = mStore.updateMember(session, member);
 		return result;
 	}
 
 	@Override
-	public int deleteMember(String memberId, Member mOne) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteMember(String memberId) {
+		int result = mStore.deleteMember(session, memberId);
+		return result;
 	}
 
 	@Override
 	public Member checkLogin(Member member) {
-		Member result = mStore.checkLogin(SqlSession, member);
+		Member result = mStore.checkLogin(session, member);
+		return result;
+	}
+
+
+	@Override
+	public Member showOneById(String memberId) {
+		Member result = mStore.showOneById(session, memberId);
 		return result;
 	}
 
 	@Override
-	public Boolean userCheck(Member mOne) {
-		return null;
-	}
-
-	@Override
-	public Member findId(String memberId) {
-		return null;
-	}
-
-	@Override
-	public Member findPw(Member member) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int resetPw(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Member showOneById(String memberId) {
-		Member result = mStore.showOneById(SqlSession, memberId);
+	public Member searchMemberInfo(Member member) {
+		Member result = mStore.selectOneMemberId(session, member);
 		return result;
 	}
 

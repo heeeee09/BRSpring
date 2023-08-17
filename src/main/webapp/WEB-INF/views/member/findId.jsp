@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/inputInfo.css">
-    <link rel="stylesheet" href="../resources/css/reset.css">
-    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="../resources/css/member/inputInfo.css">
+    <link rel="stylesheet" href="../resources/css/common/reset.css">
+    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 </head>
 
 <body>
@@ -23,9 +23,16 @@
 	                <div id="loginBox">
             		<form action="/member/findId.do" method="post">
 	                    <div class="inputBox">
-	                        <label for="user-pw">이메일</label>
+	                        <label for="userPw">이름</label>
 	                        <div>
-	                            <input type="text" name="member-email" placeholder="  이메일 주소를 입력하세요">
+	                            <input type="text" name="memberName" placeholder="  이름을 입력하세요">
+	                        </div>
+	                     </div>
+                         <div id="line"></div>
+	                     <div class="inputBox">
+	                        <label for="userPw">이메일</label>
+	                        <div>
+	                            <input type="text" name="memberEmail" placeholder="  이메일 주소를 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>

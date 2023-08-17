@@ -22,9 +22,9 @@ public class MemberStoreLogic implements MemberStore {
 	}
 
 	@Override
-	public int deleteMember(SqlSession session, Member mOne) {
-		
-		return 0;
+	public int deleteMember(SqlSession session, String memberId) {
+		int result = session.delete("MemberMapper.deleteMember", memberId);
+		return result;
 	}
 
 	@Override
@@ -34,32 +34,15 @@ public class MemberStoreLogic implements MemberStore {
 	}
 
 	@Override
-	public Member checkPassword(SqlSession session, Member mOne) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Member findId(SqlSession session, String memberId) {
-		return null;
-	}
-
-	@Override
-	public Member findPw(SqlSession session, Member member) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int resetPw(SqlSession session, Member member) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public Member showOneById(SqlSession session, String memberId) {
 		Member result = session.selectOne("MemberMapper.showOneById", memberId);
 		return result;
+	}
+
+	@Override
+	public Member selectOneMemberId(SqlSession session, Member member) {
+		Member result = session.selectOne("MemberMapper.selectOneMemberId", member);
+		return null;
 	}
 
 }
