@@ -22,6 +22,12 @@ public class MemberStoreLogic implements MemberStore {
 	}
 
 	@Override
+	public int updateMemberPw(SqlSession session, Member member) {
+		int result = session.update("MemberMapper.updateMemberPw", member);
+		return result;
+	}
+
+	@Override
 	public int deleteMember(SqlSession session, String memberId) {
 		int result = session.delete("MemberMapper.deleteMember", memberId);
 		return result;
@@ -42,7 +48,13 @@ public class MemberStoreLogic implements MemberStore {
 	@Override
 	public Member selectOneMemberId(SqlSession session, Member member) {
 		Member result = session.selectOne("MemberMapper.selectOneMemberId", member);
-		return null;
+		return result;
+	}
+
+	@Override
+	public Member selectOneMemberPw(SqlSession session, Member member) {
+		Member result = session.selectOne("MemberMapper.selectOneMemberPw", member);
+		return result;
 	}
 
 }

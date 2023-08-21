@@ -14,18 +14,27 @@
  		<result property="memberAddress"   column="MEMBER_ADDRESS"/>
  	</resultMap>
  	<insert id="insertMember">
- 		INSERT INTO BR_MEMBER_TBL VALUES(#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberGender}, #{memberEmail}, #{memberPhone}, #{memberAddress})
+ 		INSERT INTO MEMBER_TBL VALUES(#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberGender}, #{memberEmail}, #{memberPhone}, #{memberAddress})
  	</insert> 	
  	 	<update id="updateMember">
- 		UPDATE BR_MEMBER_TBL SET MEMBER_PWD=#{memberPw}, MEMBER_EMAIL=#{memberEmail}, MEMBER_PHONE=#{memberPhone}, MEMBER_ADDRESS=#{memberAddress} WHERE MEMBER_ID=#{memberId}
+ 		UPDATE MEMBER_TBL SET MEMBER_PW=#{memberPw}, MEMBER_EMAIL=#{memberEmail}, MEMBER_PHONE=#{memberPhone}, MEMBER_ADDRESS=#{memberAddress} WHERE MEMBER_ID=#{memberId}
+ 	</update>
+ 	<update id="updateMemberPw">
+ 		UPDATE MEMBER_TBL SET MEMBER_PW=#{memberPw } WHERE MEMBER_ID=#{memberId }
  	</update>
  	<delete id="deleteMember">
- 		DELETE BR_MEMBER_TBL WHERE MEMBER_ID=#{memberId }
+ 		DELETE MEMBER_TBL WHERE MEMBER_ID=#{memberId }
  	</delete>
  	<select id="checkLogin" resultMap="memberResultMap">
-		SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=#{memberId } AND MEMBER_PWD=#{memberPw }
+		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID=#{memberId } AND MEMBER_PWD=#{memberPw }
  	</select> 	
  		<select id="showOneById" resultMap="memberResultMap">
-		SELECT * FROM BR_MEMBER_TBL WHERE MEMBER_ID=#{memberId}
+		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID=#{memberId}
 	</select> 
+	<select id="selectOneMemberId" resultMap="memberResultMap">
+		SELECT MEMBER_ID FROM MEMBER_TBL WHERE MEMBER_NAME=#{memberName } AND MEMBER_EMAIL=#{memberEmail }
+	</select>
+	<select id="selectOneMemberPw" resultMap="memberResultMap">
+		SELECT MEMBER_ID FROM MEMBER_TBL WHERE MEMBER_ID=#{memberId } AND MEMBER_NAME=#{memberName } AND MEMBER_EMAIL=#{memberEmail }
+	</select>
 </mapper>

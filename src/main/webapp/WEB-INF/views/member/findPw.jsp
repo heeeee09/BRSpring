@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/inputInfo.css">
-    <link rel="stylesheet" href="../resources/css/reset.css">
-    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="../resources/css/member/inputInfo.css">
+    <link rel="stylesheet" href="../resources/css/common/reset.css">
+    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 </head>
 
 <body>
@@ -25,23 +25,23 @@
 	                    <div class="inputBox">
 	                        <label for="user-id">아이디</label>
 	                        <div>
-	                            <input type="text" name="member-id" placeholder="  아이디를 입력하세요">
+	                            <input type="text" name="memberId" placeholder="  아이디를 입력하세요">
+	                        </div>
+	                    </div>
+	                    <div id="line"></div>
+	                    <div class="inputBox">
+	                        <label for="user-pw">이름</label>
+	                        <div>
+	                            <input type="text" name="memberName" placeholder="  이름을 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
 	                    <div class="inputBox">
 	                        <label for="user-pw">이메일</label>
 	                        <div>
-	                            <input type="text" name="member-email" placeholder="  가입 시 작성한 이메일을 입력하세요">
+	                            <input type="text" name="memberEmail" placeholder="  가입 시 작성한 이메일을 입력하세요">
 	                        </div>
 	                    </div>
-	                    <div class="inputBox">
-	                        <label for="user-pw">전화번호</label>
-	                        <div>
-	                            <input type="text" name="member-phone" placeholder="  전화번호를 입력하세요">
-	                        </div>
-	                    </div>
-	                    <div id="line"></div>
 	                    <div id="btnBox">
 		                    <button id="loginbtn" type="submit">비밀번호 찾기</button>
 	                	</div>

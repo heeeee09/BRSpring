@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${title }</title>
 </head>
 <body>
 <script type="text/javascript">
 
-	var message = '${msg}';
-	var returnUrl = '${url}';
+	const message = '${msg}';
+	const returnUrl = '${url}';
 	alert(message);
 	document.location.href = returnUrl;
 

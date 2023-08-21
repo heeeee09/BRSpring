@@ -46,11 +46,27 @@ public interface MemberStore {
 	public Member showOneById(SqlSession session, String memberId);
 
 	/**
-	 * 입력한 정보로 멤버 아이디 찾기
+	 * 입력한 정보로 멤버 아이디 찾기(이름, 이메일)
 	 * @param session
 	 * @param member
 	 * @return
 	 */
 	public Member selectOneMemberId(SqlSession session, Member member);
+
+	/**
+	 * 입력한 정보로 멤버 비밀번호 찾기(변경 전(아이디, 이름, 이메일))
+	 * @param session
+	 * @param member
+	 * @return
+	 */
+	public Member selectOneMemberPw(SqlSession session, Member member);
+
+	/**
+	 * 비밀번호 재설정
+	 * @param session
+	 * @param member
+	 * @return
+	 */
+	public int updateMemberPw(SqlSession session, Member member);
 	
 }

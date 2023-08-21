@@ -10,7 +10,8 @@
     align-items: center;
 }
 label {
-    width: 180px;
+    font-size: 30px;
+    width: 230px;
     color: #402022;
 }
 .inputBox {
@@ -87,4 +88,12 @@ button {
     flex-direction : column;
     align-items : center;
     margin: 50px;
+}
+#attentionMsg {
+	font-size: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    display: flex;
+    flex-direction : column;
+    align-items : center;
+    margin-bottom: 20px;
 }

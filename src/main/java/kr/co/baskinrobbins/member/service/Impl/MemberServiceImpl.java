@@ -29,6 +29,12 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
+	public int resetMemberPw(Member member) {
+		int result = mStore.updateMemberPw(session, member);
+		return result;
+	}
+
+	@Override
 	public int deleteMember(String memberId) {
 		int result = mStore.deleteMember(session, memberId);
 		return result;
@@ -48,8 +54,14 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Member searchMemberInfo(Member member) {
+	public Member searchMemberIdInfo(Member member) {
 		Member result = mStore.selectOneMemberId(session, member);
+		return result;
+	}
+
+	@Override
+	public Member searchMemberPwInfo(Member member) {
+		Member result = mStore.selectOneMemberPw(session, member);
 		return result;
 	}
 
