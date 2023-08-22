@@ -5,7 +5,7 @@
  <mapper namespace="MemberMapper">
  	<resultMap type="kr.co.baskinrobbins.member.domain.Member" id="memberResultMap">
  		<id 	property="memberId" column="MEMBER_ID"/>
- 		<result property="memberPw" column="MEMBER_PWD"/>
+ 		<result property="memberPw" column="MEMBER_PW"/>
  		<result property="memberName"   column="MEMBER_NAME"/>
  		<result property="memberBirth"   column="MEMBER_BIRTHDAY"/>
  		<result property="memberGender"   column="MEMBER_GENDER"/>
@@ -26,7 +26,7 @@
  		DELETE MEMBER_TBL WHERE MEMBER_ID=#{memberId }
  	</delete>
  	<select id="checkLogin" resultMap="memberResultMap">
-		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID=#{memberId } AND MEMBER_PWD=#{memberPw }
+		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID=#{memberId } AND MEMBER_PW=#{memberPw }
  	</select> 	
  		<select id="showOneById" resultMap="memberResultMap">
 		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID=#{memberId}

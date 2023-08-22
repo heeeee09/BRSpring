@@ -33,12 +33,4 @@
               <li><a href="#">BRAND</a></li>
               <li><a href="#">DELIVERY</a></li>
           </ul>
-          <ul id="panel">
-          	<li></li>
-          	<li></li>
-          	<li></li>
-          	<li></li>
-          	<li></li>
-          	<li></li>
-          </ul>
   	   	</nav>

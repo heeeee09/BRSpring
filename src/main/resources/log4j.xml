@@ -29,7 +29,7 @@
 	</logger>
 
 	<logger name="org.springframework.web">
-		<level value="info" />
+		<level value="warn" />
 	</logger>
 	<!-- log4j -->
 		<logger name="jdbc.connection" additivity="false">

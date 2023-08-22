@@ -12,13 +12,12 @@
 }
 
 label {
-    font-size: 30px;
-    width: 230px;
+    width: 220px;
     display: inline-block;
 }
 .labels {
     color: #402022;
-/*     font-size: 40px; */
+    font-size: 40px;
     font-family: 'Nanum Gothic', sans-serif;
     padding: 30px;
     

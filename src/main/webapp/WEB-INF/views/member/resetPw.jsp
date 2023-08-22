@@ -20,7 +20,7 @@
         <main>
             <section id="login-field">
 	            <p>새 비밀번호 설정하기</p>
-       			   	<form action="/member/resetPw.do" method="post">
+       			   	<form action="/member/resetPw.do" method="post" onsubmit="return resetBtn()">
 	                <div id="loginBox">
 	                	`<input type="hidden" name="memberId" value="${member}">
 	                    <div class="inputBox">
@@ -57,8 +57,8 @@
 
   	    if(memberPw === '' && memberPwCheck === '') {
   	    	window.alert('변경할 비밀번호를 입력해주세요.');
-  	    	e.preventDefault();
-  	    	return;
+//   	    	e.stopPropagation();
+  	    	return false;
   	    }
   	    if (memberPw.length >= 6 && memberPw.length <= 16) {
   	        if (memberPw === memberPwCheck) {
@@ -67,14 +67,14 @@
   	        } else {
   	            document.getElementById('attentionMsg').innerHTML = '비밀번호가 일치하지 않습니다.';
   	            document.getElementById('attentionMsg').style.color = 'red';
-  	          	e.preventDefault();
-  	          	return;
+//   	          	e.preventDefault();
+  	          	return false;
   	        }
   	    } else {
   	    	window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
   	        document.getElementById('attentionMsg').innerHTML = '';
-  	      	e.preventDefault();
-  	      	return;
+//   	      	e.stopPropagation();
+  	      	return false;
   	    }
   	}
 //         function success() {

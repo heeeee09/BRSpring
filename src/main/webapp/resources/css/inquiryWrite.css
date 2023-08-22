@@ -33,6 +33,7 @@ label {
     margin-right: 30px;
 }
 #writeBox {
+	padding : 20px;
     margin-top: 20px;
     width: 1000px;
     height: 500px;
@@ -125,4 +126,8 @@ th {
     color: white;
     background-color: #402022;
     cursor: pointer !important;
+}
+.boardWrite {
+	padding: 10px;
+    font-size: 25px;
 }
