@@ -12,7 +12,7 @@
 	const message = '${msg}';
 	const returnUrl = '${url}';
 	alert(message);
-	document.location.href = returnUrl;
+	window.location.href = returnUrl;
 
 </script>
 </body>

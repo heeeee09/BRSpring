@@ -9,7 +9,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>1:1 문의 작성하기</title>
 	    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="../resources/css/inquiryWrite.css">
+	    <link rel="stylesheet" href="../resources/css/board/boardWrite.css">
 	    <link rel="stylesheet" href="../resources/css/common/reset.css">
 	    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 	</head>

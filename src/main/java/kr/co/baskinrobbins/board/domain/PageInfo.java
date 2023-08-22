@@ -3,7 +3,7 @@ package kr.co.baskinrobbins.board.domain;
 public class PageInfo {
 	private int currentPage;
 	private String boardWriter;
-	private int recordnaiCountPage;
+	private int recordnaviCountPage;
 	private int naviCountPerPage;
 	private int startNavi;
 	private int endNavi;
@@ -14,12 +14,12 @@ public class PageInfo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PageInfo(int currentPage, String boardWriter, int recordnaiCountPage, int naviCountPerPage, int startNavi,
+	public PageInfo(int currentPage, String boardWriter, int recordnaviCountPage, int naviCountPerPage, int startNavi,
 			int endNavi, int totalCount, int naviTotalCount) {
 		super();
 		this.currentPage = currentPage;
 		this.boardWriter = boardWriter;
-		this.recordnaiCountPage = recordnaiCountPage;
+		this.recordnaviCountPage = recordnaviCountPage;
 		this.naviCountPerPage = naviCountPerPage;
 		this.startNavi = startNavi;
 		this.endNavi = endNavi;
@@ -39,11 +39,11 @@ public class PageInfo {
 	public void setBoardWriter(String boardWriter) {
 		this.boardWriter = boardWriter;
 	}
-	public int getRecordnaiCountPage() {
-		return recordnaiCountPage;
+	public int getrecordnaviCountPage() {
+		return recordnaviCountPage;
 	}
-	public void setRecordnaiCountPage(int recordnaiCountPage) {
-		this.recordnaiCountPage = recordnaiCountPage;
+	public void setrecordnaviCountPage(int recordnaviCountPage) {
+		this.recordnaviCountPage = recordnaviCountPage;
 	}
 	public int getNaviCountPerPage() {
 		return naviCountPerPage;
@@ -77,8 +77,8 @@ public class PageInfo {
 	}
 	@Override
 	public String toString() {
-		return "PageInfo [currentPage=" + currentPage + ", boardWriter=" + boardWriter + ", recordnaiCountPage="
-				+ recordnaiCountPage + ", naviCountPerPage=" + naviCountPerPage + ", startNavi=" + startNavi
+		return "PageInfo [currentPage=" + currentPage + ", boardWriter=" + boardWriter + ", recordnaviCountPage="
+				+ recordnaviCountPage + ", naviCountPerPage=" + naviCountPerPage + ", startNavi=" + startNavi
 				+ ", endNavi=" + endNavi + ", totalCount=" + totalCount + ", naviTotalCount=" + naviTotalCount + "]";
 	}
 	

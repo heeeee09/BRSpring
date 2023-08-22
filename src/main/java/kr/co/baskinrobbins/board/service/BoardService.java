@@ -9,9 +9,10 @@ public interface BoardService {
 
 	/**
 	 * 문의사항 게시글 총 갯수
+	 * @param boardWriter 
 	 * @return
 	 */
-	int getBoardListCount();
+	int getBoardListCount(String boardWriter);
 	
 	/**
 	 * 문의사항 페이지에서 표시될 게시글 리스트
@@ -19,5 +20,26 @@ public interface BoardService {
 	 * @return
 	 */
 	List<Board> selectBoardList(PageInfo pInfo);
+
+	/**
+	 * 문의사항 작성
+	 * @param board
+	 * @return
+	 */
+	int insertBoard(Board board);
+
+	/**
+	 * 문의사항 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	int deleteBoard(int boardNo);
+
+	/**
+	 * 문의사항 상세 조회(내가 쓴 게시글 확인)
+	 * @param boardNo
+	 * @return
+	 */
+	Board selectBoardDetail(int boardNo);
 
 }

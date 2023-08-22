@@ -9,7 +9,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>1:1 문의 내역</title>
 	    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="../resources/css/inquiryList.css">
+	    <link rel="stylesheet" href="../resources/css/board/boardList.css">
 	    <link rel="stylesheet" href="../resources/css/common/reset.css">
 	    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 	</head>
@@ -18,7 +18,7 @@
 			<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	        <section>
 	            <div id="inquiryBox">
-	                <p>${memberName }님이 문의하신 내용입니다</p>
+	                <p class="listText">${memberName }님이 문의하신 내용입니다</p>
 	                <div id="line1"></div>
 	                <table>
 	                	<thead>
@@ -38,10 +38,10 @@
 								<td><a href="javascript:void(0)" onclick="deleteCheck('${board.boardNo}')">X</a></td>
 							</tr>
 							</c:forEach>
-							<tr>
-								<td colspan="5" align="center">
-									<c:forEach begin="${pInfo.stratNavi }" end="${pInfo.endNavi }" var="p">
-										<c:url var="pageUrl" value="/board/list.do">
+							<tr align="center">
+								<td colspan="5">
+									<c:forEach begin="${pInfo.startNavi }" end="${pInfo.endNavi }" var="p">
+										<c:url var="pageUrl" value="/board/list.do?memberId=${memberId }">
 											<c:param name="page" value="${p }"></c:param>
 										</c:url>
 										<a href="${pageUrl }">${p }</a>

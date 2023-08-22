@@ -3,21 +3,23 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
+
+#memberId {
+    width: 350px;
+}
+
 #join_info {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-label {
+.labels {
     width: 320px;
     display: inline-block;
-}
-.labels {
+	font-size: 30px;
     color: #402022;
-    font-size: 40px;
     font-family: 'Nanum Gothic', sans-serif;
     padding: 30px;
     
@@ -105,4 +107,10 @@ button {
 #id ,#pw{
     display: flex;
     align-items: center;
+}
+.checkBtn {
+	width: 130px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #FFB84C;
 }

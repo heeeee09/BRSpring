@@ -9,12 +9,20 @@
  		<result property="boardContent"   column="BOARD_CONTENT"/>
  		<result property="boardDate"   column="BOARD_DATE"/>
  		<result property="boardWriter"   column="BOARD_WRITER"/>
- 		<result property="boardWriterName"   column="BOARD_WRITER_NAME"/>
  	</resultMap>
+ 	<insert id="insertBoard">
+ 		INSERT INTO BOARD_TBL VALUES(SEQ_BOARD_NO.NEXTVAL, #{boardSubject }, #{boardContent }, DEFAULT, #{boardWriter })
+ 	</insert>
+ 	<delete id="deleteBoard">
+ 		DELETE BOARD_TBL WHERE BOARD_NO=#{boardNo }
+ 	</delete>
 	<select id="selectBoardListCount" resultType="_int">
-		SELECT COUNT(*) FROM BOARD_TBL
+		SELECT COUNT(*) FROM BOARD_TBL WHERE BOARD_WRITER = #{boardWriter }
 	</select>
 	<select id="selectBoardList" resultMap="boardResultMap">
 		SELECT * FROM BOARD_TBL WHERE BOARD_WRITER = #{boardWriter}
+	</select>
+	<select id="selectBoardDetail" resultMap="boardResultMap">
+		SELECT * FROM BOARD_TBL WHERE BOARD_NO = #{boardNo }
 	</select>
 </mapper>

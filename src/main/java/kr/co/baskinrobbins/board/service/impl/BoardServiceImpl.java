@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService{
 	private SqlSession session;
 	
 	@Override
-	public int getBoardListCount() {
-		int result = bStore.selectBoardListCount(session);
+	public int getBoardListCount(String boardWriter) {
+		int result = bStore.selectBoardListCount(session, boardWriter);
 		return result;
 	}
 
@@ -29,6 +29,24 @@ public class BoardServiceImpl implements BoardService{
 	public List<Board> selectBoardList(PageInfo pInfo) {
 		List<Board> bList = bStore.selectBoardList(session, pInfo);
 		return bList;
+	}
+
+	@Override
+	public int insertBoard(Board board) {
+		int result = bStore.insertBoard(session, board);
+		return result;
+	}
+
+	@Override
+	public int deleteBoard(int boardNo) {
+		int result = bStore.deleteBoard(session, boardNo);
+		return result;
+	}
+
+	@Override
+	public Board selectBoardDetail(int boardNo) {
+		Board result = bStore.selectBoardDetail(session, boardNo);
+		return result;
 	}
 
 }

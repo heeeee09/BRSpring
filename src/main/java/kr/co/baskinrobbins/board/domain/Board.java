@@ -6,7 +6,6 @@ public class Board {
 	private String boardContent;
 	private String boardDate;
 	private String boardWriter;
-	private String boardWriterName;
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -37,16 +36,10 @@ public class Board {
 	public void setBoardWriter(String boardWriter) {
 		this.boardWriter = boardWriter;
 	}
-	public String getBoardWriterName() {
-		return boardWriterName;
-	}
-	public void setBoardWriterName(String boardWriterName) {
-		this.boardWriterName = boardWriterName;
-	}
 	@Override
 	public String toString() {
 		return "문의사항 [문의사항 번호=" + boardNo + ", 문의사항 제목=" + boardSubject + ", 문의사항 내용=" + boardContent
-				+ ", 작성일=" + boardDate + ", 아이디=" + boardWriter + ", 이름="+boardWriterName + "]";
+				+ ", 작성일=" + boardDate + ", 아이디=" + boardWriter + "]";
 	}
 	
 	

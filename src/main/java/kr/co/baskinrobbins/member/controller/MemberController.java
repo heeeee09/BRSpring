@@ -26,15 +26,35 @@ public class MemberController {
 		return "member/register";
 	}
 	
+	@RequestMapping(value="/member/registerIdCheck.do", method = RequestMethod.GET)
+	public String registerIdCheck(
+			@RequestParam("memberId") String memberId
+			, Model model
+			) {		
+		Member mOne = service.showOneById(memberId);
+		if(mOne == null) {
+			model.addAttribute("msg", "사용 가능한 아이디 입니다.");
+			return "member/register";
+		}else {
+			model.addAttribute("msg", "이미 사용 중인 아이디 입니다.");
+			return "member/register";
+		}
+	}
+	
 	@RequestMapping(value="/member/register.do", method = RequestMethod.POST)
 	public String registerMember(
 			  @ModelAttribute Member member
 			, Model model) {
 		try {
 			int result = service.registerMember(member);
+			/*
+			 * 회원가입 유효성 체크 후(입력해야하는 정보 모두 입력 후) alert 창이 뜨고 insert도 되지만
+			 * redirect:/index.jsp 오류가 남( does not have a registered handler.)
+			 * redirect 삭제 후 실행해보니 정상적으로 작동함
+			 */
 			if(result > 0) {
 				model.addAttribute("msg", "회원가입이 완료되었습니다.");
-				model.addAttribute("url", "redirect:/index.jsp");
+				model.addAttribute("url", "/index.jsp");
 				return "common/alert";
 			}else {
 				return "common/serviceResult";
