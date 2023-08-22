@@ -197,8 +197,8 @@
  		   var memberEmail = document.querySelector('#memberEmail').value;
  		   var memberPhone = document.querySelector('#memberPhone').value;
  		   
+ 		   var idCheck = document.
 
- 		   
  		   if(memberName === '' || memberBirth === '' || memberEmail === '' || memberPhone === ''){
  		   		window.alert("필수정보는 반드시 입력해야 합니다.");
  		   		return false;
