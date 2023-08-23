@@ -7,11 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 완료</title>
+    <title>${title }</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./resources/css/login.css">
-    <link rel="stylesheet" href="./resources/css/reset.css">
-    <link rel="stylesheet" href="./resources/css/logo_nav_footer.css">
+    <link rel="stylesheet" href="./resources/css/member/login.css">
+    <link rel="stylesheet" href="./resources/css/common/reset.css">
+    <link rel="stylesheet" href="./resources/css/common/logo_nav_footer.css">
     <style>
         p {
             margin-top: 25%;
@@ -41,12 +41,11 @@
 <body>
     <div id="container">
         <section>
-        <p>로그인 되었습니다</p>
-        <div id="closebtn">
-        <button onclick="window.close()">닫기</button>
-        </div>
+	        <p>${msg }</p>
+	        <div id="closebtn">
+	        	<button onclick="window.close()">닫기</button>
+	        </div>
         </section>
-        </footer>
     </div>
     <script>
     </script>

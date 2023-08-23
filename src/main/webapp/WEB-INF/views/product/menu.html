@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../resources/css/menu.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div id="logo">
+                <a href="#"><img id="logoimg" onclick="logoLink()" src="../resources/image/header_Logo.png" alt="로고이미지"></a>
+            </div>
+            <div id="login">
+                <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
+            </div>
+            <div id="mypage">
+                <a href="#" onclick="mypageLink()">MYPAGE</a>
+            </div>
+            <div id="basket">
+                <a href="#" onclick="basketLink()"><img  id="basketlink" src="../resources/image/header_Basket_Img.png" alt="장바구니 링크"></a>
+            </div>
+        </header>
+        <nav class="navi">
+            <ul id="menu">
+                <li><a href="#" onclick="menuLink()">MENU</a></li>
+                <li style="text-align: center;"><a href="#">영양정보 및 <br>알레르기</a></li>
+                <li><a href="#">EVENT</a></li>
+                <li><a href="#" onclick="storeLink()">STORE</a></li>
+                <li><a href="#">BRAND</a></li>
+                <li><a href="#">DELIVERY</a></li>
+            </ul>
+            <ul id="panel">
+	          	<li></li>
+	          	<li></li>
+	          	<li></li>
+	          	<li></li>
+	          	<li></li>
+	          	<li></li>
+          	</ul>
+        </nav>
+        <section>
+            <div>
+                <div id="menuCategory">
+                    <div id="icecream" class="menuCategory"><a href="#">아이스크림</a></div>
+                    <div id="icecreamCake" class="menuCategory">아이스크림케이크</div>
+                    <div id="beverage" class="menuCategory">음료</div>
+                    <div id="coffee" class="menuCategory">커피</div>
+                    <div id="dessert" class="menuCategory">디저트</div>
+                </div>
+                <div id="menuTitle">ICE CREAM</div>
+                <div class="menus">
+                    <div>
+                        <a href="./menuDetail_01_31yogurt.html"><img src="../resources/image/menu/31요거트.jpg" alt="31요거트"></a>
+                        <p class="iceName">31 요거트</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                    <div>
+                        <a href="./menuDetail_02_GreenTea.html"><img src="../resources/image/menu/그린티.jpg" alt="그린티"></a>
+                        <p class="iceName">그린티</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                        
+                    </div>
+                    <div>
+                        <a href="./menuDetail_03_Rainbow.html"><img src="../resources/image/menu/레인보우 샤베트.jpg" alt="레인보우 샤베트"></a>
+                        <p class="iceName">레인보우 샤베트</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                </div>
+                <div class="menus">
+                    <div>
+                        <a href="./menuDetail_04_Mintchoco.html"><img src="../resources/image/menu/민트초콜릿칩.jpg" alt="민트초콜릿칩"></a>
+                        <p class="iceName">민트 초콜릿칩</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                    <div>
+                        <a href="./menuDetail_05_windy.html"><img src="../resources/image/menu/바람과 함께 사라지다.jpg" alt="바람과 함께 사라지다"></a>
+                        <p class="iceName">바람과 함께 사라지다</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                        
+                    </div>
+                    <div>
+                        <a href="./menuDetail_06_verystrawberry.html"><img src="../resources/image/menu/베리베리-스트로베리.jpg" alt="베리베리 스트로베리"></a>
+                        <p class="iceName">베리베리 스트로베리</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                </div>
+                <div class="menus">
+                    <div>
+                        <a href="./menuDetail_07_Shootinstar.html"><img src="../resources/image/menu/슈팅스타.jpg" alt="슈팅스타"></a>
+                        <p class="iceName">슈팅스타</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                    <div>
+                        <a href="./menuDetail_08_Almondbongbong.html"><img src="../resources/image/menu/아몬드-봉봉.jpg" alt="아몬드 봉봉"></a>
+                        <p class="iceName">아몬드 봉봉</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                        
+                    </div>
+                    <div>
+                        <a href="./menuDetail_09_MomIsAlien.html"><img src="../resources/image/menu/엄마는외계인.jpg" alt="엄마는 외계인"></a>
+                        <p class="iceName">엄마는 외계인</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                </div>
+                <div class="menus">
+                    <div>
+                        <a href="./menuDetail_10_CottonCandy.html"><img src="../resources/image/menu/이상한-나라의-솜사탕.jpg" alt="이상한 나라의 솜사탕"></a>
+                        <p class="iceName">이상한 나라의 솜사탕</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                    <div>
+                        <a href="./menuDetail_11_ChocoTree.html"><img src="../resources/image/menu/초코나무-숲.jpg" alt="초코나무 숲"></a>
+                        <p class="iceName">초코나무 숲</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                        
+                    </div>
+                    <div>
+                        <a href="./menuDetail_12_CookieAndCream.html"><img src="../resources/image/menu/쿠키-앤-크림.jpg" alt="쿠키 앤 크림"></a>
+                        <p class="iceName">쿠키 앤 크림</p>
+                        <p class="iceType">CONE & CUP</p>
+                        <button class="orderBtn" onclick="orderLink()">주문하기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="flex">
+            <section>
+                <ul id="bottomMenu1" class="footers">
+                    <li><a href="#">1:1 문의</a></li>
+                    <li><a href="#">자주묻는질문</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">위치서비스기반이용약관</a></li>
+                </ul>
+                <ul id="bottomMenu2">
+                    <li>사업자 등록번호 : 303-81-09535 비알코리아(주) 대표이사 이주연
+                        서울특별시 서초구 남부순환로 2620(양재동 11-149번지)
+                    </li>
+                    <li>TEL : 080-555-3131 개인정보관이책임자 : 김경우</li>
+                    <li>Copyrightⓒ 2016 BRKOREA Company. All Rights Reserved.</li>
+                </ul>
+            </section>
+        </footer>
+    </div>
+
+    <script>
+        function logoLink() {
+            location.href = "../index.html"
+        }
+        function loginLink() {
+            location.href = "../member/login.html"
+        }
+        function mypageLink() {
+            location.href = "../member/myPage.html"
+        }
+        function basketLink() {
+            location.href = "../member/myBasket.html"
+        }
+        function menuLink() {
+            location.href = "./menu.html"
+        }
+        function storeLink() {
+            location.href = "../etc/storeSearch.html"
+        }
+        function orderLink() {
+            location.href = "../member/order.html"
+        }
+    </script>
+</body>
+
+</html>

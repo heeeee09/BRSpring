@@ -26,30 +26,30 @@
                     <input type="text" name="memberId" id="memberId" onchange="regCheck()" placeholder="  아이디를 입력해주세요">
                     <button type="button" class="checkBtn" onclick="idCheck()">아이디 중복 확인</button>
                 </div>
-                    <c:if test="${not empty msg}">
-				        <script>
-				            alert("${msg}");
-				        </script>
-			 	    </c:if>
-                	<span id="idCheckMsg"></span>
+					<c:if test="${not empty msg}">
+					    <span id="idCheckMsg" class="checkMsg" style="color: ${color };">
+					        ${msg}
+					    </span>
+					</c:if>
+                	<span id="idCheckMsg" class="checkMsg"></span>
                 <div id="line"></div>
                 <div id="pw" class="infoBox">
                     <label for="user-pw" class="labels">* 비밀번호</label>
                     <input type="password" name="memberPw" id="memberPw" onchange="pwCheck();regCheck();" placeholder="  비밀번호를 입력해주세요">
                 </div>
-                <span id="pwCheckMsg"></span>
+                <span id="pwCheckMsg" class="checkMsg"></span>
                 <div id="line"></div>
                 <div id="pw-confirm" class="infoBox">
                     <label for="user-pw-confirm" class="labels">비밀번호 확인</label>
                     <input type="password" name="memberPwCheck" id="memberPwCheck" onchange="pwCheck()" placeholder="  비밀번호를 다시 입력해주세요">
                 </div>
-                	<span id="attentionMsg"></span>
+                	<span id="attentionMsg" class="checkMsg"></span>
                 <div id="line"></div>
                 <div id="name" class="infoBox">
                     <label for="user-name" class="labels">* 이름</label>
                     <input type="text" name="memberName" id="memberName" onchange="regCheck()" placeholder="  이름을 입력해주세요">
                 </div>
-                <span id="nameCheckMsg"></span>
+                <span id="nameCheckMsg" class="checkMsg"></span>
                 <div id="line"></div>
                 <div id="birthday" class="infoBox">
                     <label for="user-birthday" class="labels">* 생년월일</label>
@@ -58,8 +58,8 @@
                 <div id="line"></div>
                 <div id="gender" class="infoBox">
                     <label for="user-gender" class="labels">  성별</label>
-                    <input type="radio" name="memberGender" value="M" class="memberGender" id="male"><label for="male" id="genderM"> 남 </label>
-                    <input type="radio" name="memberGender" value="F" class="memberGender" id="female"><label for="female" id="genderF"> 여 </label>
+                    <input type="radio" name="memberGender" value="M" class="memberGender" id="male"><label for="male" id="genderM" class="memberGender" > 남 </label>
+                    <input type="radio" name="memberGender" value="F" class="memberGender" id="female"><label for="female" id="genderF" class="memberGender" > 여 </label>
                 </div>
                 <div id="line"></div>
                 <div id="email" class="infoBox">
@@ -75,6 +75,7 @@
                 <div id="address" class="infoBox">
                     <label for="uer-address" class="labels">  주소</label>
                     <input type="text" name="memberAddress" id="memberAddress">
+                    <button type="button" class="checkBtn" onclick="daumPostcode()">우편번호 찾기</button>
                 </div>
                 <div id="line"></div>
             </div>
@@ -87,20 +88,21 @@
         </section>
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
     </div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
  	   <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
  	   
  	   function idCheck() {
  		  var memberId = document.querySelector('#memberId').value;
- 		  var memberPw = document.querySelector('#memberPw').value;
  		  console.log("memberId", memberId);
  		  if(memberId.trim() != ""){
  			 location.href = "/member/registerIdCheck.do?memberId="+memberId;
- 			 return true;
+ 		       var newUrl =  "/member/register.do";
+ 		       window.history.replaceState({}, document.title, newUrl);
  		  }else {
  			  window.alert('아이디를 입력해주세요.');
- 			  return false;
  		  }
+ 		  return false;
  	   }
  	   
  	  	function pwCheck() {
@@ -187,6 +189,15 @@
  	      }
  	      
  	  	}
+ 	  	
+ 	  	function daumPostcode(){
+ 	  		// 객체 만들어서(주소가 저장될) 창 띄우기 -> API 실행
+			new daum.Postcode({
+				oncomplete : function(data){
+				document.querySelector("#memberAddress").value="("+data.zonecode + ") "+ data.autoJibunAddress +", "+data.buildingName;
+				}
+			}).open(); 	  		
+ 	  	}
  	   
  		   //아이디, 비밀번호, 이름. 생일, 이메일, 전화번호
  	   function registerCheck() {
@@ -197,9 +208,9 @@
  		   var memberEmail = document.querySelector('#memberEmail').value;
  		   var memberPhone = document.querySelector('#memberPhone').value;
  		   
- 		   var idCheck = document.
+//  		   var idCheck = document;
 
- 		   if(memberName === '' || memberBirth === '' || memberEmail === '' || memberPhone === ''){
+ 		   if(memberName === '' || memberBirth === '' || memberEmail === '' || memberPhone === '') {
  		   		window.alert("필수정보는 반드시 입력해야 합니다.");
  		   		return false;
  		   } else{

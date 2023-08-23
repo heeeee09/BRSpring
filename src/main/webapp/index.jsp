@@ -54,15 +54,15 @@
             <section id="main3" class="mains">
                 <!-- // 베스트 맛 소개 -->
                 <div id="bfLeft" class="bestFlavors">
-                    <a href="./product/menuDetail_03_Rainbow.html"><img class="bfImg" src="/resources/image/menu/레인보우 샤베트.jpg" alt="레인보우 샤베트"></a>
+                    <a href="./product/menuDetail_03_Rainbow.html"><img class="bfImg" src="/resources/image/product/icecream/rainbow_sherbet.png" alt="레인보우 샤베트"></a>
                     <div class="img-caption">레인보우 샤베트</div>
                 </div>
                 <div id="bfCenter" class="bestFlavors">
-                    <a href="./product/menuDetail_05_windy.html"><img class="bfImg" src="/resources/image/menu/바람과 함께 사라지다.jpg" alt="레인보우 샤베트"></a>
+                    <a href="./product/menuDetail_05_windy.html"><img class="bfImg" src="/resources/image/product/icecream/gone_with_the_wind.png" alt="바람과 함께 사라지다"></a>
                     <div class="img-caption">바람과 함께 사라지다</div>
                 </div>
                 <div id="bfRight" class="bestFlavors">
-                    <a href="./product/menuDetail_09_MomIsAlien.html"><img class="bfImg" src="/resources/image/menu/엄마는외계인.jpg" alt="레인보우 샤베트"></a>
+                    <a href="./product/menuDetail_09_MomIsAlien.html"><img class="bfImg" src="/resources/image/product/icecream/mom_is_an_alien.png" alt="엄마는 외계인"></a>
                     <div class="img-caption">엄마는 외계인</div>
                 </div>
             </section>

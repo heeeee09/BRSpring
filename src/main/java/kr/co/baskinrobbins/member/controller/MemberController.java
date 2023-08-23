@@ -34,12 +34,34 @@ public class MemberController {
 		Member mOne = service.showOneById(memberId);
 		if(mOne == null) {
 			model.addAttribute("msg", "사용 가능한 아이디 입니다.");
+			model.addAttribute("color", "blue");
 			return "member/register";
 		}else {
 			model.addAttribute("msg", "이미 사용 중인 아이디 입니다.");
+			model.addAttribute("color", "red");
 			return "member/register";
 		}
 	}
+	
+	@RequestMapping(value="/common/popup.do", method = RequestMethod.GET)
+	public void showIdPopup( 
+			) {
+	}
+	
+//			@RequestParam("memberId") String memberId
+//			, Model model
+//			) {
+//		Member mOne = service.showOneById(memberId);
+//		if(mOne == null) {
+//			model.addAttribute("title", "아이디 중복 확인");
+//			model.addAttribute("msg", "사용 가능한 아이디 입니다.");
+//			return "member/register";
+//		}else {
+//			model.addAttribute("title", "아이디 중복 확인");
+//			model.addAttribute("msg", "이미 사용 중인 아이디 입니다.");
+//			return "member/register";
+//		}
+//	}
 	
 	@RequestMapping(value="/member/register.do", method = RequestMethod.POST)
 	public String registerMember(
@@ -256,9 +278,9 @@ public class MemberController {
 	
 	@RequestMapping(value="/member/myPage.do", method = RequestMethod.GET)
 	public String showMyPage(
-			@RequestParam("memberId") String memberId
+			HttpSession session
 			, Model model) {
-		Member mOne = service.showOneById(memberId);
+		Member mOne = service.showOneById((String)session.getAttribute("memberId"));
 		if(mOne != null) {
 			model.addAttribute("member", mOne); 
 			return "member/myPage";

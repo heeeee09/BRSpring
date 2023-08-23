@@ -16,5 +16,5 @@
             location.href = "/product/menu.do";
         }
         function storeLink() {
-            location.href = "./etc/storeSearch.html";
+            location.href = "/store/storeSearch.html";
         }
