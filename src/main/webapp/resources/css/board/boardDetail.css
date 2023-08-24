@@ -1,45 +1,4 @@
-#Board{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-.listText {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 23px;
-    text-align: center;
-    color: #402022;
-    padding: 30px;
-    text-align: left;
-	
-}
-.boardDetail {
-	width: 90%;
-    border: 3px solid #CCC;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    font-size: 25px;
-    padding: 20px;
-}
-#boardTitleBox{
-    width: 1000px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-#boardContentBox{
-	padding : 20px;
-    margin-top: 20px;
-    width: 1000px;
-    height: 500px;
-	border: 1px solid #cccccc;
-    border-radius: 10px;
-}
-#subject {
-	font-size: 2.8em;
-	font-weight : bold;
-	padding: 20px;
-}
+
 #downBtn {
 	width: 130px;
     height: 40px;
@@ -50,29 +9,20 @@
     border-radius: 25px;
     color: white;
 }
-#file {
-    display: flex;
-    justify-content: center;
-}
-#fileDown {
-	display: flex;
-    justify-content: center;
-}
+
 #modify {
-    width: 300px;
+    width: 250px;
     height: 70px;	
 	margin: 10px;
-    border-radius: 50px;
     font-size: 25px;
-    font-family: 'Nanum Gothic', sans-serif;
-    border: 0px;
-    font-weight: lighter;
-    color: white;
     background-color: #F04DA3;
-    cursor: pointer !important;    
 }
-.boardWrite {
-	padding: 10px;
+#back{
+    width: 250px;
+    height: 70px;	
+	margin: 10px;
     font-size: 25px;
+    background-color: #402022;	
 }
+
 .

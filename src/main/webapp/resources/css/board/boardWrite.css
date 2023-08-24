@@ -1,54 +1,12 @@
-#inquiryBox {
-	flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    text-align: center;
-    height: 80%;
-}
-#subject {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 40px;
-    text-align: center;
-    color: #402022;
-    padding: 30px;
-    text-align: center;
-}
 label {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-size: 30px;
-    padding-right: 10px;
-    vertical-align: middle;
-    padding : 10px 20px;
     cursor: pointer;
-}
-#titleBox {
-    width: 900px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-::placeholder {
-    font-size: 20px;
-}
-#line1 {
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-#writeBox {
-	padding : 20px;
-    margin-top: 20px;
-    width: 1000px;
-    height: 500px;
-	border: 1px solid #cccccc;
-    border-radius: 10px;
 }
 #writeBox ::placeholder {
     text-align: center;
 }
-
+::placeholder {
+    font-size: 20px;
+}
 #choose {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 30px;
@@ -56,23 +14,6 @@ label {
     color: #F04DA3;
     padding-bottom: 30px;
     padding-left: 30px;
-}
-select {
-    font-family: 'Nanum Gothic', sans-serif;
-    width: 120px;
-    height: 50px;
-    border-radius: 20px;
-    font-size: 30px;
-    text-align: center;
-    border-color: #ccc;
-}
-
-table{
-    padding: 10px;
-    margin: auto;
-    width: 1100px;
-    text-align: center;
-    font-family: 'Nanum Gothic', sans-serif;
 }
 #modify {
     background-color: #402022;
@@ -87,44 +28,13 @@ table{
     color: white;
     cursor: pointer !important;
 }
-td {
-    width: 250px;
-    font-size: 23px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-top: 3px solid #402022;
-}
-.titles {
-    width: 400px;
-}
-th {
-    padding-bottom: 20px;
-    color: #F04DA3;
-    font-weight: lighter;
-    font-size: 30px;
-}
-.delete {
-    font-size: 30px;
-}
-#total {
-    padding: 10px;
-    width: 1100px;
-    font-size: 40px;
-    font-family: 'Nanum Gothic', sans-serif;
-    display: flex;
-    justify-content: end;
-}
-#buttonBox {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-}
+
 #write {
     width: 230px;
     height: 70px;
     margin: 10px;
     border-radius: 50px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Nanum Gothic', sans-serif;
     border: 0px;
     font-weight: lighter;
@@ -135,14 +45,6 @@ th {
 .boardWrite {
 	padding: 10px;
     font-size: 25px;
-}
-#fileBtn {
-	position : absolute;
-	width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
 }
 .upload-name {
     display: inline-block;
@@ -164,19 +66,10 @@ th {
     color: white;
     font-family: 'Nanum Gothic';
     margin-left: 8px;	
+    display: flex;
 }
 #file {
 	padding: 30px;
-}
-#downBtn {
-	width: 130px;
-    height: 40px;
-    font-size: 16px;
-    background-color: #2ab0f4;	
-    margin-left : 20px;
-    border: none;
-    border-radius: 25px;
-    color: white;
 }
 #fileDown {
 	display: flex;
@@ -195,12 +88,6 @@ th {
     width: 230px;
     height: 70px;	
 	margin: 10px;
-    border-radius: 50px;
+
     font-size: 25px;
-    font-family: 'Nanum Gothic', sans-serif;
-    border: 0px;
-    font-weight: lighter;
-    color: white;
-    background-color: #F04DA3;
-    cursor: pointer !important;    
 }

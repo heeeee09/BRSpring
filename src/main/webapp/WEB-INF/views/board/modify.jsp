@@ -9,6 +9,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>1:1 문의 작성하기</title>
 	    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	    <link rel="stylesheet" href="../resources/css/board/board.css">
 	    <link rel="stylesheet" href="../resources/css/board/boardWrite.css">
 	    <link rel="stylesheet" href="../resources/css/common/reset.css">
 	    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
@@ -19,11 +20,11 @@
 	        <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	        <section>
 	            <form action="/board/insert.do" method="post" enctype="multipart/form-data">
-		            <div id="inquiryBox">
-		                <p id="subject">1:1 문의하기</p>
+		            <div class="boardBox">
+		                <p id="subject">1:1 문의글 수정하기</p>
 		                <div id="line1"></div>
 		                    <div id="titles">
-		                        <label for="">제목</label>
+		                        <label class="titleLabel" for="">제목</label>
 		                        <input id="titleBox" type="text" class="boardWrite" name="boardSubject" value="${board.boardSubject }" placeholder="  게시글의 제목을 입력해주세요">
 		                    </div>    
 		                    <div>
@@ -32,10 +33,10 @@
 		                    <div id="file">
 		                    	<input class="upload-name" value="${board.boardFileName }" placeholder="첨부파일">
 		                    	<label for="fileBtn" id="fileLabel">파일첨부</label>
-		                    	<input type="file" name="uploadFile" id="fileBtn">
+		                    	<input type="file" name="uploadFile" id="fileBtn" class="fileBtn">
 		                    </div>
-		                <div id="buttonBox">
-		                    <button type="submit" id="write">1:1 문의하기</button>
+		                <div class="submitBtnBox">
+		                    <button type="submit" class="btn" id="write">수정하기</button>
 		                </div>
 		            </div>
 	            </form>
