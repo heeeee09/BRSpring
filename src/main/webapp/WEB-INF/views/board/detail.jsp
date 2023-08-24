@@ -12,38 +12,45 @@
 	    <link rel="stylesheet" href="../resources/css/board/boardList.css">
 	    <link rel="stylesheet" href="../resources/css/common/reset.css">
 	    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
-	    <link rel="stylesheet" href="../resources/css/board/boardDetail.css">
+	    <link rel="stylesheet" href="../resources/css/board/boardWrite.css">
 	</head>
 	<body>
 	    <div id="container">
 			<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	        <section>
 	            <div class="listText" id="inquiryBox">
-	                <p>${memberName }님이 문의하신 내용입니다</p>
+	                <p id="subject">${memberName }님이 문의하신 내용입니다</p>
 	                <div id="line1"></div>
-	                <table>
-	                	<thead>
-		                    <tr id="list1">
-			                    <div id="Board">
-		                            <div id="boardTitleBox" class="boardDetail">
-		                            	<p>${board.boardSubject }</p>
-		                            </div>
-		                            <div id="boardContentBox" class="boardDetail">
-		                            	 <p>${board.boardContent }</p>
-		                            </div>
-		                        </div>
-							</tr>
-	                    </tbody>
-	                </table>
+	                    <div id="titles">
+	                        <label for="">제목</label>
+	                        <input id="titleBox" type="text" class="boardWrite" name="boardSubject" value="${board.boardSubject }" readonly>
+	                    </div> 	                
+	                    <div>
+	                        <input type="text" id="writeBox" class="boardWrite" name="boardContent" value="${board.boardContent }" readonly>
+	                    </div>
+                            <c:if test="${board.boardFileRename ne null}">
+			                    <div id="detailFile">
+			                    	<p id="upload-name" >${board.boardFileName }</p>
+			                    	<a href="../resources/buploadFiles/${board.boardFileRename}" download><button id="downBtn">파일 다운로드</button></a>
+			                    </div>		                            
+		                    </c:if>
+                        </div>
 	                <div id="buttonBox">
 	                    <a href="/board/list.do?memberId=${memberId }"><button type="button" id="write">문의 내역으로 돌아가기</button></a>
+	                    <a href="/board/modify.do?boardNo=${board.boardNo }"><button type="button" id="modify">수정하기</button></a>
 	                </div>
 	            </div>
 	        </section>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
-	    </div>
 	    <script>
 	    	<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
+//     		document.getElementById('downBtn').addEventListener('click', function(event) {
+// 			function downBtn(event){
+//     		    var button = event.target;
+// 	    		var filePath = button.getAttribute('data-filepath');
+// 	    		var downLink = document.getElementById('downLink');
+// 	    	    downLink.href = filePath;
+// 	    	};
 	    </script>
 	</body>
 </html>

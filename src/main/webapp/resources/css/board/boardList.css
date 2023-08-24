@@ -9,6 +9,9 @@
     color: #402022;
     padding: 30px;
     text-align: left;
+	font-size: 30px;
+    font-weight: bold;
+    text-align: -webkit-center;    
 }
 #line1 {
     border: 1px solid #ccc;
@@ -89,11 +92,11 @@ th {
     padding: 30px;
 }
 #write {
-    width: 350px;
-    height: 80px;
+    width: 300px;
+    height: 70px;
     margin: 10px;
     border-radius: 50px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Nanum Gothic', sans-serif;
     border: 0px;
     font-weight: lighter;

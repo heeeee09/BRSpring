@@ -47,6 +47,12 @@ public class BoardStoreLogic implements BoardStore{
 		return result;
 	}
 
+	@Override
+	public Board selectBoardDetail(SqlSession session, Board board) {
+		Board bPost= session.selectOne("BoardMapper.selectBoardDetail", board);
+		return bPost;
+	}
+
 	
 
 }

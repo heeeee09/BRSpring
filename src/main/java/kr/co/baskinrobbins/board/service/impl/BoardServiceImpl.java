@@ -49,4 +49,10 @@ public class BoardServiceImpl implements BoardService{
 		return result;
 	}
 
+	@Override
+	public Board selectBoardDetail(Board board) {
+		Board bPsot = bStore.selectBoardDetail(session, board);
+		return bPsot;
+	}
+
 }

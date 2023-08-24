@@ -1,16 +1,26 @@
 package kr.co.baskinrobbins.board.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.baskinrobbins.board.domain.Board;
 import kr.co.baskinrobbins.board.domain.PageInfo;
@@ -32,11 +42,19 @@ public class BoardController {
 		return "board/insert";
 	}
 	
+	/*
+	 * 파일 업로드 위해 3가지 수정
+	 * 1. inset.jsp의 form태그에 enctype="multipart/form-data" 추가, <input>태그 추가(name=@RequestParam으로 가져오는 값)
+	 * 2. pom.xml에 파일 업로드 관련 라이브러리 추가
+	 * 3. root-context.xml에 파일 업로드 빈 등록
+	 */
 	@RequestMapping(value="/board/insert.do", method = RequestMethod.POST)
-	public String insertBoard(
-			HttpSession session
+	public ModelAndView insertBoard(
+			@RequestParam(value="uploadFile", required = false) MultipartFile uploadFile
+			, HttpSession session
+			, HttpServletRequest request
 			, @ModelAttribute Board board
-			, Model model
+			, ModelAndView mv
 			) {
 		/*
 		 * 문의내용 입력 후 버튼 누르면 
@@ -44,27 +62,87 @@ public class BoardController {
 		 * 문의사항이 DB에 저장됨(memberId == boardWriter)
 		 */
 		String memberId = (String)session.getAttribute("memberId");
-		board.setBoardWriter(memberId);
-		int result = service.insertBoard(board);
-		if(result > 0) {
-			model.addAttribute("title", "문의사항 작성 성공");
-			model.addAttribute("msg", "문의사항 작성을 완료했습니다.");
-			model.addAttribute("urlIndex", "/board/list.do");
-			model.addAttribute("btnMsgIndex", "문의사항 내역으로 이동");
-			model.addAttribute("urlBack", "/member/myPage.do");
-			model.addAttribute("btnMsgBack", "마이페이지로 이동");
-			return "common/serviceResult";
-		}else {
-			model.addAttribute("title", "문의사항 작성 실패");
-			model.addAttribute("msg", "문의사항 작성이 실패했습니다.");
-			model.addAttribute("urlIndex", "/board/list.do");
-			model.addAttribute("btnMsgIndex", "문의사항 내역으로 이동");
-			model.addAttribute("urlBack", "/member/myPage.do");
-			model.addAttribute("btnMsgBack", "마이페이지로 이동");
-			return "common/serviceResult";
+		try {
+			board.setBoardWriter(memberId);
+			// 업로드할 파일이 있는지 확인
+			if(uploadFile != null && !uploadFile.getOriginalFilename().equals("")) {
+				Map<String, Object> nMap = this.saveFile(uploadFile, request);
+				// 변수로 만들어서 하기, 바로 board.set해서 넣어도 됨!
+				String fileRename = (String)nMap.get("fileRename");
+				String fileName = (String)nMap.get("fileName");
+				String filePath = (String)nMap.get("filePath");
+				long fileLength = (long)nMap.get("fileLength");
+				board.setBoardFileName(fileName);
+				board.setBoardFileRename(fileRename);
+				board.setBoardFilePath(filePath);
+				board.setBoardFileLength(fileLength);
+			}
+			int result = service.insertBoard(board);
+				if(result > 0) {
+					mv.addObject("title", "문의사항 작성 성공").addObject("msg", "문의사항 작성을 완료했습니다.");
+					mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
+					mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
+					mv.setViewName("common/serviceResult");
+					return mv;
+				}else {
+					mv.addObject("title", "문의사항 작성 실패").addObject("msg", "문의사항 작성이 실패했습니다.");
+					mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
+					mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
+					mv.setViewName("common/serviceResult");
+					return mv;
+				}
+			} catch (Exception e) {
+				mv.addObject("title", "문의내역 작성 보기 실패").addObject("msg", e.getMessage());
+				mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
+				mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
+				mv.setViewName("common/serviceResult");
+				return mv;
 		}
 	}
 	
+	// 파일 처리 메소드화
+	private Map<String, Object> saveFile(MultipartFile uploadFile, HttpServletRequest request) throws IllegalStateException, IOException {
+		// HashMap 사용해서 파일 저장하기
+		Map<String, Object> infoMap = new HashMap<String, Object>();
+		// ===================== 파일 이름 설정하기 ==========================
+		String fileName = uploadFile.getOriginalFilename();
+		
+		// ===================== 파일 경로 ==============================
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		/*
+		 * getServletContext() : 서블릿에 관련된 모든 정보를 가짐
+		 * getTealPath("resources") : resources에 대한 경로를 가지고 옴
+		 */
+		String saveFolder = root + "\\buploadFiles";
+		// 파일 객체 만들기
+		File folder = new File(saveFolder);
+		if(!folder.exists()) {
+			folder.mkdir();
+		}
+		// ===================== 파일 리네임(시간으로) ========================
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyMMddHHmmss");
+		String strResult = sdf.format(new Date(System.currentTimeMillis()));
+		
+		// ===================== 확장자명 구하기 =====================
+		String ext = fileName.substring(fileName.lastIndexOf(".")+1);
+		// 설정한 파일리네임 = B(파일 구분용) + 시간으로 리네임한 이름 + . + 확장자명
+		String fileRename = "B" + strResult + "." + ext;
+		// 최종 저장 경로 = 저장할 폴더(resources + 저장하는 폴더 위치 + \\ + 설정한 파일리네임)
+		String savePath = saveFolder + "\\" + fileRename;
+		// 파일 크기 구하기
+		long fileLength = uploadFile.getSize();
+		// ==================== 진짜 파일 저장 =======================
+		File file = new File(savePath);
+		uploadFile.transferTo(file); // 예외처리 해주기
+		// HashMap에 데이터 put 하기
+		infoMap.put("fileName", fileName);
+		infoMap.put("fileRename", fileRename);
+		infoMap.put("filePath", savePath);
+		infoMap.put("fileLength", fileLength);
+
+		return infoMap;
+	}
+
 	@RequestMapping(value="/board/delete.do", method = RequestMethod.GET)
 	public String deleteBoard(
 			HttpSession session
@@ -90,6 +168,7 @@ public class BoardController {
 		}
 	}
 	
+	
 	@RequestMapping(value="board/list.do", method = RequestMethod.GET)
 	public String showBoardList(
 		@RequestParam(value="page", required = false, defaultValue = "1") Integer currentPage
@@ -112,11 +191,9 @@ public class BoardController {
 				model.addAttribute("bList", bList);
 				return "board/list";
 			}else {
-				model.addAttribute("title", "문의내역 조회 실패");
-				model.addAttribute("msg", "데이터를 찾을 수 없습니다.");
-				model.addAttribute("url", "member/myPage.do?memberId="+boardWriter);
-				model.addAttribute("btnMsg", "이전으로 이동");
-				return "common/serviceResultOneBtn";
+				model.addAttribute("pInfo", pInfo);
+				model.addAttribute("bList", bList);
+				return "board/list";
 			}
 			
 		}catch (Exception e) {
@@ -157,23 +234,49 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/detail.do", method = RequestMethod.GET)
-	public String showBoardDetail(
-			@ModelAttribute Board board
+	public ModelAndView showBoardDetail(
+			ModelAndView mv
+			, @RequestParam("boardNo") Integer boardNo
 			, HttpSession session
 			, Model model
 			) {
-		String memberId = (String)session.getAttribute("memberId");
-		Board post = service.selectBoardDetail(board.getBoardNo());
-		if(post != null) {
-			model.addAttribute("board", post);
-			return "board/detail";
+		String boardWriter = (String)session.getAttribute("memberId");
+		Board board = new Board(boardNo, boardWriter);
+		Board bPost = service.selectBoardDetail(board);
+		if(bPost != null) {
+			mv.addObject("board", bPost);
 		}else {
-			model.addAttribute("title", "문의내역 상세 보기 실패");
-			model.addAttribute("msg", "데이터를 찾을 수 없습니다.");
-			model.addAttribute("url", "member/myPage.do?memberId="+memberId);
-			model.addAttribute("btnMsg", "이전으로 이동");
-			return "common/serviceResultOneBtn";
+			mv.addObject("title", "문의내역 상세 보기 실패");
+			mv.addObject("msg", "데이터를 찾을 수 없습니다.");
+			mv.addObject("url", "member/myPage.do");
+			mv.addObject("btnMsg", "이전으로 이동");
 		}
+		return mv;
+	}
+	
+	@RequestMapping(value="/board/modify.do", method = RequestMethod.GET)
+	public ModelAndView showModifyBoard(
+			ModelAndView mv
+			, @RequestParam("boardNo") Integer boardNo
+			, HttpSession session
+			) {
+		/*
+		 * 문의사항 디테일 : 세션에 저장된 아이디와 보드에 저장된 보드번호로 할 예정
+		 * SELECT * FROM BOARD_TBL WHERE BOARD_NO=#{boardNo } AND BOARD_WRITER=#{memberId }
+		 */
+		String boardWriter = (String)session.getAttribute("memberId");
+		Board board = new Board(boardNo, boardWriter);
+		Board bPost = service.selectBoardDetail(board);
+		System.out.println(board);
+		if(bPost != null) {
+			mv.addObject("board", bPost);
+		}else {
+			mv.addObject("title", "문의내역 수정 페이지 조회 실패");
+			mv.addObject("msg", "데이터를 찾을 수 없습니다.");
+			mv.addObject("url", "board/detail.do");
+			mv.addObject("btnMsg", "이전으로 이동");
+		}
+		return mv;
 	}
 	
 }

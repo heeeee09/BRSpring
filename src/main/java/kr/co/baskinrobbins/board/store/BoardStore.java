@@ -49,4 +49,12 @@ public interface BoardStore {
 	 */
 	Board selectBoardDetail(SqlSession session, int boardNo);
 
+	/**
+	 * 문의사항 상세 조회(세션 아이디, 글 번호)
+	 * @param session
+	 * @param bPost
+	 * @return
+	 */
+	Board selectBoardDetail(SqlSession session, Board board);
+
 }

@@ -42,4 +42,11 @@ public interface BoardService {
 	 */
 	Board selectBoardDetail(int boardNo);
 
+	/**
+	 * 문의사항 상세 조회(세션 아이디, 글 번호)
+	 * @param bPost
+	 * @return
+	 */
+	Board selectBoardDetail(Board board);
+
 }

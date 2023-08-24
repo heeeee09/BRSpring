@@ -14,6 +14,7 @@
 	    <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 	</head>
 	<body>
+		<input type="hidden" name="boardNo" value="${board.boardNo }">
 	    <div id="container">
 	        <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	        <section>
@@ -23,13 +24,13 @@
 		                <div id="line1"></div>
 		                    <div id="titles">
 		                        <label for="">제목</label>
-		                        <input id="titleBox" type="text" class="boardWrite" name="boardSubject" placeholder="  게시글의 제목을 입력해주세요">
+		                        <input id="titleBox" type="text" class="boardWrite" name="boardSubject" value="${board.boardSubject }" placeholder="  게시글의 제목을 입력해주세요">
 		                    </div>    
 		                    <div>
-		                        <input type="text" id="writeBox" class="boardWrite" name="boardContent" placeholder="문의내용을 작성해주세요. 욕설 및 비방은 무통보 삭제될 수 있습니다.">
+		                        <input type="text" id="writeBox" class="boardWrite" name="boardContent" value="${board.boardContent }" placeholder="문의내용을 작성해주세요. 욕설 및 비방은 무통보 삭제될 수 있습니다.">
 		                    </div>
 		                    <div id="file">
-		                    	<input class="upload-name" value="첨부파일" placeholder="첨부파일">
+		                    	<input class="upload-name" value="${board.boardFileName }" placeholder="첨부파일">
 		                    	<label for="fileBtn" id="fileLabel">파일첨부</label>
 		                    	<input type="file" name="uploadFile" id="fileBtn">
 		                    </div>

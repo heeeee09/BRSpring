@@ -40,12 +40,27 @@
 							</c:forEach>
 							<tr align="center">
 								<td colspan="5">
+									<!-- 이전 -->
+									<c:if test="${pInfo.startNavi != 1 }">
+										<c:url var="prevUrl" value="/board/list.do">
+											<c:param name="page" value="${pInfo.startNavi -1 }"></c:param>
+										</c:url>
+										<a href="${prevUrl }"><</a>
+									</c:if>
+									<!-- 페이지 네비 -->
 									<c:forEach begin="${pInfo.startNavi }" end="${pInfo.endNavi }" var="p">
 										<c:url var="pageUrl" value="/board/list.do?memberId=${memberId }">
 											<c:param name="page" value="${p }"></c:param>
 										</c:url>
 										<a href="${pageUrl }">${p }</a>
 									</c:forEach>
+									<!-- 다음 -->
+									<c:if test="${pInfo.startNavi != 1 }">
+										<c:url var="nextUrl" value="/board/list.do">
+											<c:param name="page" value="${pInfo.endNavi + 1 }"></c:param>
+										</c:url>
+										<a href="${nextUrl }">></a>
+									</c:if>									
 								</td>
 							</tr>
 	                    </tbody>

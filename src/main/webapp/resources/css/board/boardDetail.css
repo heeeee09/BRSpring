@@ -22,19 +22,57 @@
     padding: 20px;
 }
 #boardTitleBox{
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    
+    width: 1000px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 #boardContentBox{
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
+	padding : 20px;
+    margin-top: 20px;
+    width: 1000px;
+    height: 500px;
+	border: 1px solid #cccccc;
+    border-radius: 10px;
 }
+#subject {
+	font-size: 2.8em;
+	font-weight : bold;
+	padding: 20px;
+}
+#downBtn {
+	width: 130px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #2ab0f4;	
+    margin-left : 20px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+}
+#file {
+    display: flex;
+    justify-content: center;
+}
+#fileDown {
+	display: flex;
+    justify-content: center;
+}
+#modify {
+    width: 300px;
+    height: 70px;	
+	margin: 10px;
+    border-radius: 50px;
+    font-size: 25px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;    
+}
+.boardWrite {
+	padding: 10px;
+    font-size: 25px;
+}
+.

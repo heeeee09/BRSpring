@@ -1,20 +1,25 @@
 #inquiryBox {
+	flex-direction: column;
+    align-items: center;
     padding: 30px;
     text-align: center;
-    height: 900px;
+    height: 80%;
 }
-p {
+#subject {
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 2.8em;
+    font-size: 40px;
     text-align: center;
     color: #402022;
     padding: 30px;
-    text-align: left;
+    text-align: center;
 }
 label {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 30px;
     padding-right: 10px;
+    vertical-align: middle;
+    padding : 10px 20px;
+    cursor: pointer;
 }
 #titleBox {
     width: 900px;
@@ -37,8 +42,8 @@ label {
     margin-top: 20px;
     width: 1000px;
     height: 500px;
-    border: 0;
-    border-top: 3px solid #402022;
+	border: 1px solid #cccccc;
+    border-radius: 10px;
 }
 #writeBox ::placeholder {
     text-align: center;
@@ -115,8 +120,8 @@ th {
     padding: 30px;
 }
 #write {
-    width: 350px;
-    height: 80px;
+    width: 230px;
+    height: 70px;
     margin: 10px;
     border-radius: 50px;
     font-size: 30px;
@@ -130,4 +135,72 @@ th {
 .boardWrite {
 	padding: 10px;
     font-size: 25px;
+}
+#fileBtn {
+	position : absolute;
+	width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 50%;
+    color: #999999;
+    border-radius: 10px;
+}
+#fileLabel {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #FFB84C;
+    display: inline-block;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Nanum Gothic';
+    margin-left: 8px;	
+}
+#file {
+	padding: 30px;
+}
+#downBtn {
+	width: 130px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #2ab0f4;	
+    margin-left : 20px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+}
+#fileDown {
+	display: flex;
+    justify-content: center;
+}
+#upload-name{
+	font-size: 25px;
+    font-weight: normal;
+}
+#detailFile {
+	padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+#modify {
+    width: 230px;
+    height: 70px;	
+	margin: 10px;
+    border-radius: 50px;
+    font-size: 25px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;    
 }
