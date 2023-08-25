@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 정보 수정</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/member/join.css">
+    <link rel="stylesheet" href="../resources/css/member/register.css">
+    <link rel="stylesheet" href="../resources/css/member/modify.css">
     <link rel="stylesheet" href="../resources/css/common/reset.css">
     <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
     <style>
@@ -22,12 +23,12 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <section>
             <div id="joinBox">
-            <p>회원 정보 수정</p>
+            <p id="subject">회원 정보 수정</p>
             <form action="/member/modify.do" method="post">
 	            <div id="join_info">
 	                <div id="id" class="infoBox">
 	                    <label for="user-id" class="labels">아이디</label>
-	                    <input type="text" value="${member.memberId }" readonly>
+	                    <p class="printInfo">${member.memberId }</p>
 	                </div>
 	                <div id="line"></div>
 	                <div id="pw" class="infoBox">
@@ -42,19 +43,21 @@
 	                <div id="line"></div>
 	                <div id="name" class="infoBox">
 	                    <label for="user-name" class="labels">이름</label>
-	                    <input type="text"  value="${member.memberName }" readonly>
+	                    <div>
+		                    <p class="printInfo">${member.memberName }</p>
+	                    </div>
 	                </div>
 	                <div id="line"></div>
 	                <div id="birthday" class="infoBox">
 	                    <label for="user-birthday" class="labels">생년월일</label>
-	                    <p>${member.memberBirth }</p>
+	                    <p class="printInfo">${member.memberBirth }</p>
 	                </div>
 	                <div id="line"></div>
 	                <div id="gender" class="infoBox">
 	                    <label for="user-gender" class="labels">성별</label>
 						<input type="hidden" value="${member.memberGender }" name="member-gender" id="member-gender" readonly>
-						<c:if test="${member.memberGender eq 'M'}" >남자</c:if>
-						<c:if test="${member.memberGender eq 'F'}">여자</c:if>
+						<c:if test="${member.memberGender eq 'M'}" ><p class="printInfo">남자</p></c:if>
+						<c:if test="${member.memberGender eq 'F'}"><p class="printInfo">여자</p></c:if>
 	                </div>
 	                <div id="line"></div>
 	                <div id="email" class="infoBox">
@@ -74,8 +77,8 @@
 	                <div id="line"></div>
 	            </div>
 	            <div id="button">
-	                <button type="submit" value="수정하기">수정하기</button>
-	                <button type="button" id="prevBtn"><a href="/member/myPage.do?memberId=${member.memberId }" class="whiteFont">이전 페이지로 이동</a></button>
+	                <button class="modifyBtn" type="submit" value="수정하기">수정하기</button>
+	                <button class="modifyBtn" type="button" id="prevBtn"><a href="/member/myPage.do?memberId=${member.memberId }" class="whiteFont">이전 페이지로 이동</a></button>
             </div>
             </form>
             </div>

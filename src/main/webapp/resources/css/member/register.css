@@ -25,9 +25,9 @@
     padding: 20px;
     
 }
-#joinBox p {
+#joinBox label {
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     color: #402022;
 }
@@ -119,5 +119,7 @@ button {
 	width: 350px;
 }
 input {
+	﻿font-size : 20px;
 	padding: 10px;
 }
+
