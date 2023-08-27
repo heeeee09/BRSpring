@@ -1,5 +1,4 @@
-
-#login-field {
+﻿login-field {
     /* border: 10px solid #ccc; */
     padding: 70px;
 }
@@ -92,4 +91,13 @@ button {
 input {
 	﻿font-size : 20px;
 	padding: 10px;
+}
+#subject {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 35px;
+    font-weight : bold;
+    text-align: center;
+    color: #402022;
+    padding: 30px;
+    text-align: center;
 }

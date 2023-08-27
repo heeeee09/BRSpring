@@ -19,7 +19,7 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <main>
             <section id="login-field">
-	            <p>로그인</p>
+	            <p id="subject">로그인</p>
                 <div id="loginBox">
             		<form action="/member/login.do" method="post">
 	                    <div class="inputBox">

@@ -13,7 +13,7 @@
             location.href = "./member/myBasket.html";
         }
         function menuLink() {
-            location.href = "/product/menu.do";
+            location.href = "/product/iceCream.do";
         }
         function storeLink() {
             location.href = "/store/storeSearch.html";

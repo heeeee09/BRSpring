@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -55,7 +55,8 @@
 	                <div id="line"></div>
 	                <div id="gender" class="infoBox">
 	                    <label for="user-gender" class="labels">성별</label>
-						<input type="hidden" value="${member.memberGender }" name="member-gender" id="member-gender" readonly>
+						<input type="hidden" value="${member.memberGender }" name="memberGender" id="member-gender" readonly>
+						<p class="printInfo">${member.memberGender }</p>
 						<c:if test="${member.memberGender eq 'M'}" ><p class="printInfo">남자</p></c:if>
 						<c:if test="${member.memberGender eq 'F'}"><p class="printInfo">여자</p></c:if>
 	                </div>
@@ -87,6 +88,7 @@
     </div>
     <script>
 		<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
+			console.log("${member.memberGender}");
     </script>
 </body>
 </html>

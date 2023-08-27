@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 탈퇴</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/account_delete.css">
+    <link rel="stylesheet" href="../resources/css/member/account_delete.css">
     <link rel="stylesheet" href="../resources/css/common/reset.css">
     <link rel="stylesheet" href="../resources/css/common/logo_nav_footer.css">
 </head>
@@ -19,7 +19,7 @@
         <section>
             <div>
                 <div id="deletePage">
-                    <p>회원 탈퇴</p>
+                    <p id="subject">회원 탈퇴</p>
                     <form action="/member/delete.do" method="POST">
 	                    <div id="deleteBox">
 	                        <div id="pwBox1" class="pwBoxs">

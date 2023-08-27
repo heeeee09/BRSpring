@@ -1,6 +1,9 @@
 @charset "UTF-8";
 .printInfo {
-	font-size : 25px;
+    width: 500px;
+    font-size: 25px;
+    text-align: -webkit-center;
+    padding-right: 100px;
 }
 #subject {
     font-family: 'Nanum Gothic', sans-serif;

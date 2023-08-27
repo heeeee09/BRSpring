@@ -19,7 +19,7 @@
         <section>
             <form name="registerForm" action="/member/register.do" method="post">
             <div id="joinBox">
-            <p>회원가입</p>
+            <p id="subject">회원가입</p>
             <div id="join_info">
                 <div id="id" class="infoBox">
                     <label for="user-id" class="labels">* 아이디</label>

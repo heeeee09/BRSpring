@@ -18,7 +18,7 @@
 			<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	        <section>
 	            <div id="inquiryBox">
-	                <p class="listText">${memberName }님이 문의하신 내용입니다</p>
+	                <p id="subject">${memberName }님이 문의하신 내용입니다</p>
 	                <div id="line1"></div>
 	                <table>
 	                	<thead>

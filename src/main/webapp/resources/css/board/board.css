@@ -1,10 +1,11 @@
 @charset "UTF-8";
-.boardBox {
+section {
 	flex-direction: column;
     align-items: center;
     padding: 30px;
     text-align: center;
     height: 80%;
+    display: flex;
 }
 .titleLabel {
     font-family: 'Nanum Gothic', sans-serif;
@@ -84,6 +85,7 @@
 	display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 #fileLabel {
     display: flex;
