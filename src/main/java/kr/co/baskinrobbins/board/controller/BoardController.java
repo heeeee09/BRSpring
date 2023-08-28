@@ -38,7 +38,6 @@ public class BoardController {
 			, Model model
 			) {
 		String memberId = (String)session.getAttribute("memberId");
-		System.out.println(memberId);
 		return "board/insert";
 	}
 	
@@ -92,7 +91,56 @@ public class BoardController {
 					return mv;
 				}
 			} catch (Exception e) {
+				System.out.println(board.toString());
 				mv.addObject("title", "문의내역 작성 보기 실패").addObject("msg", e.getMessage());
+				mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
+				mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
+				mv.setViewName("common/serviceResult");
+				return mv;
+		}
+	}
+	
+	@RequestMapping(value="/board/modify.do", method = RequestMethod.POST)
+	public ModelAndView modifyBoard(
+			ModelAndView mv
+			, @RequestParam(value="uploadFile", required = false) MultipartFile uploadFile
+			, HttpSession session
+			, HttpServletRequest request
+			, @ModelAttribute Board board
+			) {
+		String memberId = (String)session.getAttribute("memberId");
+		try {
+			board.setBoardWriter(memberId);
+			// 업로드할 파일이 있는지 확인
+			if(uploadFile != null && !uploadFile.getOriginalFilename().equals("")) {
+				Map<String, Object> nMap = this.saveFile(uploadFile, request);
+				// 변수로 만들어서 하기, 바로 board.set해서 넣어도 됨!
+				String fileRename = (String)nMap.get("fileRename");
+				String fileName = (String)nMap.get("fileName");
+				String filePath = (String)nMap.get("filePath");
+				long fileLength = (long)nMap.get("fileLength");
+				board.setBoardFileName(fileName);
+				board.setBoardFileRename(fileRename);
+				board.setBoardFilePath(filePath);
+				board.setBoardFileLength(fileLength);
+			}
+			int result = service.updateBoard(board);
+				if(result > 0) {
+					mv.addObject("title", "문의사항 수정 성공").addObject("msg", "문의사항 수정을 완료했습니다.");
+					mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
+					mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
+					mv.setViewName("common/serviceResult");
+					return mv;
+				}else {
+					mv.addObject("title", "문의사항 수정 실패").addObject("msg", "문의사항 수정이 실패했습니다.");
+					mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
+					mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
+					mv.setViewName("common/serviceResult");
+					return mv;
+				}
+			} catch (Exception e) {
+				System.out.println(board.toString());
+				mv.addObject("title", "문의내역 수정 실패").addObject("msg", e.getMessage());
 				mv.addObject("urlIndex", "/board/list.do").addObject("btnMsgIndex", "문의사항 내역으로 이동");
 				mv.addObject("urlBack", "/member/myPage.do").addObject("btnMsgBack", "마이페이지로 이동");
 				mv.setViewName("common/serviceResult");
@@ -246,10 +294,9 @@ public class BoardController {
 		if(bPost != null) {
 			mv.addObject("board", bPost);
 		}else {
-			mv.addObject("title", "문의내역 상세 보기 실패");
-			mv.addObject("msg", "데이터를 찾을 수 없습니다.");
-			mv.addObject("url", "member/myPage.do");
-			mv.addObject("btnMsg", "이전으로 이동");
+			mv.addObject("title", "문의내역 상세 보기 실패").addObject("msg", "데이터를 찾을 수 없습니다.");
+			mv.addObject("url", "member/myPage.do").addObject("btnMsg", "이전으로 이동");
+			mv.setViewName("common/serviceResultOneBtn");
 		}
 		return mv;
 	}
@@ -275,6 +322,7 @@ public class BoardController {
 			mv.addObject("msg", "데이터를 찾을 수 없습니다.");
 			mv.addObject("url", "board/detail.do");
 			mv.addObject("btnMsg", "이전으로 이동");
+			mv.setViewName("common/serviceResultOneBtn");
 		}
 		return mv;
 	}

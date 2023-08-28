@@ -57,4 +57,12 @@ public interface BoardStore {
 	 */
 	Board selectBoardDetail(SqlSession session, Board board);
 
+	/**
+	 * 문의사항 수정
+	 * @param session
+	 * @param board
+	 * @return
+	 */
+	int updateBoard(SqlSession session, Board board);
+
 }

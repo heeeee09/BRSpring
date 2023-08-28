@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>º£½ºÅ²¶óºó½º</title>
+    <title>ë² ìŠ¤í‚¨ë¼ë¹ˆìŠ¤</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -52,25 +53,25 @@
                 <p id="bestMenu">BEST MENU</p>
             </div>
             <section id="main3" class="mains">
-                <!-- // º£½ºÆ® ¸À ¼Ò°³ -->
+                <!-- // ë² ìŠ¤íŠ¸ ë§› ì†Œê°œ -->
                 <div id="bfLeft" class="bestFlavors">
-                    <a href="./product/menuDetail_03_Rainbow.html"><img class="bfImg" src="/resources/image/product/icecream/rainbow_sherbet.png" alt="·¹ÀÎº¸¿ì »þº£Æ®"></a>
-                    <div class="img-caption">·¹ÀÎº¸¿ì »þº£Æ®</div>
+                    <a href="./product/menuDetail_03_Rainbow.html"><img class="bfImg" src="/resources/image/product/icecream/rainbow_sherbet.png" alt="ë ˆì¸ë³´ìš° ìƒ¤ë² íŠ¸"></a>
+                    <div class="img-caption">ë ˆì¸ë³´ìš° ìƒ¤ë² íŠ¸</div>
                 </div>
                 <div id="bfCenter" class="bestFlavors">
-                    <a href="./product/menuDetail_05_windy.html"><img class="bfImg" src="/resources/image/product/icecream/gone_with_the_wind.png" alt="¹Ù¶÷°ú ÇÔ²² »ç¶óÁö´Ù"></a>
-                    <div class="img-caption">¹Ù¶÷°ú ÇÔ²² »ç¶óÁö´Ù</div>
+                    <a href="./product/menuDetail_05_windy.html"><img class="bfImg" src="/resources/image/product/icecream/gone_with_the_wind.png" alt="ë°”ëžŒê³¼ í•¨ê»˜ ì‚¬ë¼ì§€ë‹¤"></a>
+                    <div class="img-caption">ë°”ëžŒê³¼ í•¨ê»˜ ì‚¬ë¼ì§€ë‹¤</div>
                 </div>
                 <div id="bfRight" class="bestFlavors">
-                    <a href="./product/menuDetail_09_MomIsAlien.html"><img class="bfImg" src="/resources/image/product/icecream/mom_is_an_alien.png" alt="¾ö¸¶´Â ¿Ü°èÀÎ"></a>
-                    <div class="img-caption">¾ö¸¶´Â ¿Ü°èÀÎ</div>
+                    <a href="./product/menuDetail_09_MomIsAlien.html"><img class="bfImg" src="/resources/image/product/icecream/mom_is_an_alien.png" alt="ì—„ë§ˆëŠ” ì™¸ê³„ì¸"></a>
+                    <div class="img-caption">ì—„ë§ˆëŠ” ì™¸ê³„ì¸</div>
                 </div>
             </section>
             <div class="mainHeaders">
                 <p id="withBr">WITH BASKIN ROBBINS</p>
             </div>
             <section id="main4" class="mains">
-                <!-- // SNS ÀÌµ¿ -->
+                <!-- // SNS ì´ë™ -->
                 <div id="" class="SNS">
                     <a href="https://www.facebook.com/baskinrobbinskr/" target="_blank"><img src="/resources/image/main/sns_facebook.png"
                             alt=""></a>

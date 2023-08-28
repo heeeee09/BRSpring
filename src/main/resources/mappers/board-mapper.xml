@@ -18,6 +18,9 @@
  	<insert id="insertBoard">
  		INSERT INTO BOARD_TBL VALUES(SEQ_BOARD_NO.NEXTVAL, #{boardSubject }, #{boardContent }, DEFAULT, DEFAULT, #{boardWriter }, #{boardFileName }, #{boardFileRename }, #{boardFilePath }, #{boardFileLength })
  	</insert>
+ 	<update id="updateBoard">
+ 		UPDATE BOARD_TBL SET BOARD_SUBJECT=#{boardSubject }, BOARD_CONTENT=#{boardContent }, BOARD_UPDATE=DEAFULT, BOARD_FILE_NAME=#{boardFileName }, BOARD_FILE_RENAME=#{boardFileRename }, BOARD_FILE_PATH=#{boardFilePath }, BOARD_FILE_LENGTH=#{boardFileLength }
+ 	</update>
  	<delete id="deleteBoard">
  		DELETE BOARD_TBL WHERE BOARD_NO=#{boardNo }
  	</delete>
@@ -25,7 +28,7 @@
 		SELECT COUNT(*) FROM BOARD_TBL WHERE BOARD_WRITER = #{boardWriter }
 	</select>
 	<select id="selectBoardList" resultMap="boardResultMap">
-		SELECT * FROM BOARD_TBL WHERE BOARD_WRITER = #{boardWriter}
+		SELECT * FROM BOARD_TBL WHERE BOARD_WRITER = #{boardWriter} ORDER BY BOARD_DATE DESC
 	</select>
 	<select id="selectBoardDetail" resultMap="boardResultMap">
 		SELECT * FROM BOARD_TBL WHERE BOARD_NO = #{boardNo } AND BOARD_WRITER=#{boardWriter }

@@ -18,7 +18,7 @@
 	    <div id="container">
 	        <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 	        <section>
-	            <form action="/board/insert.do" method="post" enctype="multipart/form-data">
+	            <form action="/board/insert.do" name="insertForm" method="post" enctype="multipart/form-data">
 		            <div class="boardBox">
 		                <p id="subject">1:1 문의하기</p>
 		                <div id="line1"></div>
@@ -35,7 +35,7 @@
 		                    	<input type="file" name="uploadFile" id="fileBtn" class="fileBtn">
 		                    </div>
 		                <div class="submitBtnBox">
-		                    <button type="submit" class="btn" id="write">1:1 문의하기</button>
+		                    <button type="button" class="btn" id="write" onclick="boardInsert()">1:1 문의하기</button>
 		                </div>
 		            </div>
 	            </form>
@@ -49,6 +49,16 @@
 	    		    var fileName = document.getElementById('fileBtn').value;
 	    		    document.querySelector('.upload-name').value = fileName;
 	    		});
+				function boardInsert(){
+					const boardSubject = document.querySelector("#titleBox").value;
+					const boardContent = document.querySelector("#writeBox").value;
+		 		   if(boardSubject === '' || boardContent === '') {
+		 		   		window.alert("문의사항을 입력해주세요.");
+		 		   		return false;
+		 		   } else{
+		 			  document.insertForm.submit();
+		 		   }
+				}		    		
 	    </script>
 	</body>
 </html>

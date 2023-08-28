@@ -49,4 +49,11 @@ public interface BoardService {
 	 */
 	Board selectBoardDetail(Board board);
 
+	/**
+	 * 문의사항 수정
+	 * @param board
+	 * @return
+	 */
+	int updateBoard(Board board);
+
 }

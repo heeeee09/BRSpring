@@ -3,13 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!-- NULL일 경우 NULL로 들어가게 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" /> 
+	</settings>
 	<typeAliases>
 		<typeAlias type="kr.co.baskinrobbins.member.domain.Member" alias="Member"/>
+		<typeAlias type="kr.co.baskinrobbins.member.domain.System" alias="System"/>
 		<typeAlias type="kr.co.baskinrobbins.board.domain.Board" alias="Board"/>
 	</typeAliases>
 	<!-- 메퍼 만들고 등록하기 -->
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
+		<mapper resource="mappers/system-mapper.xml"/>
 		<mapper resource="mappers/board-mapper.xml"/>
 	</mappers>
 </configuration>  

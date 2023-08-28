@@ -53,6 +53,12 @@ public class BoardStoreLogic implements BoardStore{
 		return bPost;
 	}
 
+	@Override
+	public int updateBoard(SqlSession session, Board board) {
+		int result = session.update("BoardMapper.updateBoard", board);
+		return result;
+	}
+
 	
 
 }

@@ -55,4 +55,10 @@ public class BoardServiceImpl implements BoardService{
 		return bPsot;
 	}
 
+	@Override
+	public int updateBoard(Board board) {
+		int result = bStore.updateBoard(session, board);
+		return result;
+	}
+
 }

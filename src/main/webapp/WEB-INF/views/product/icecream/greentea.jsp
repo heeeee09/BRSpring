@@ -25,10 +25,13 @@
 	                    </div>
 	                    <div>
 	                        <div>
-	                            <div id="menuTop">
-	                                <p id="menuName">그린티</p>
-                                <button id="order" onclick="orderLink()">주문하기</button>
-                            	</div>
+	                            <form action="" method="post">
+		                            <div id="menuTop">
+		                                <p id="menuName">그린티</p>
+		                                <input type="hidden" name="greentea">
+		                                <button id="order" onclick="orderLink()">주문하기</button>
+	                            	</div>
+                                </form>
                             	<p id="detail">엄선된 녹차를 사용한 싱그러운 그린티 아이스크림</p>
 	                        </div>
 	                        <div>
@@ -128,6 +131,8 @@
 	                            </div>
 	                        </div>
 	                    </div>
+                    </div>
+                 </div>	                    
 	        </section>
 	        <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 	    </div>
