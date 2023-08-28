@@ -1,0 +1,93 @@
+@charset "UTF-8";
+#subject  {
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center;
+	color: #402022;
+	padding: 30px;
+	text-align: center;
+}
+#productInsert {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	
+}
+input {
+	﻿font-size : 20px;
+	padding: 10px;
+}
+.labels {
+    width: 200px;
+    display: inline-block;
+	font-size: 30px;
+    color: #402022;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 20px;
+    
+}
+input[type=text] {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 370px;
+    margin-left: 5px;
+    color: #999999;
+    border-radius: 10px;
+}
+#fileLabel {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #FFB84C;
+    display: inline-block;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Nanum Gothic';
+    margin-left: 8px;	
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.fileBtn{
+	width: 130px;
+    height: 40px;
+    font-size: 16px;
+    margin-left : 20px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+   	position : absolute;
+	width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+#file {
+	display: flex;
+	align-items: center;
+}
+#insertBtn {
+	width: 230px;
+    height: 70px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #974EC3;
+    cursor: pointer !important;
+    margin-bottom : 40px;
+}
