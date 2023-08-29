@@ -3,7 +3,8 @@ package kr.co.baskinrobbins.product.store;
 import org.apache.ibatis.session.SqlSession;
 
 import kr.co.baskinrobbins.member.domain.Member;
-import kr.co.baskinrobbins.member.domain.System;
+import kr.co.baskinrobbins.product.domain.IceCream;
+import kr.co.baskinrobbins.member.domain.BRSystem;
 
 public interface ProductStore {
 
@@ -13,6 +14,14 @@ public interface ProductStore {
 	 * @param memberId
 	 * @return
 	 */
-	System selectOneById(SqlSession session, String memberId);
+	BRSystem selectOneById(SqlSession session, String memberId);
+
+	/**
+	 * 아이스크림 메뉴 등록
+	 * @param session
+	 * @param iceCream
+	 * @return
+	 */
+	int insertIceCream(SqlSession session, IceCream iceCream);
 
 }

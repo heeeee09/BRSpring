@@ -1,7 +1,7 @@
 package kr.co.baskinrobbins.product.service;
 
-import kr.co.baskinrobbins.member.domain.Member;
-import kr.co.baskinrobbins.member.domain.System;
+import kr.co.baskinrobbins.member.domain.BRSystem;
+import kr.co.baskinrobbins.product.domain.IceCream;
 
 public interface ProductService {
 
@@ -10,6 +10,13 @@ public interface ProductService {
 	 * @param memberId
 	 * @return
 	 */
-	System selectOneById(String memberId);
+	BRSystem selectOneById(String memberId);
+
+	/**
+	 * 아이스크림 메뉴 등록
+	 * @param iceCream
+	 * @return
+	 */
+	int insertIceCream(IceCream iceCream);
 
 }

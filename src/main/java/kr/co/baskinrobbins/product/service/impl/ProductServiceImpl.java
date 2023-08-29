@@ -4,7 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.baskinrobbins.member.domain.System;
+import kr.co.baskinrobbins.member.domain.BRSystem;
+import kr.co.baskinrobbins.product.domain.IceCream;
 import kr.co.baskinrobbins.product.service.ProductService;
 import kr.co.baskinrobbins.product.store.ProductStore;
 
@@ -16,9 +17,14 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired
 	private ProductStore pStore;
 	@Override
-	public System selectOneById(String memberId) {
-		System mOne = pStore.selectOneById(session, memberId);
+	public BRSystem selectOneById(String memberId) {
+		BRSystem mOne = pStore.selectOneById(session, memberId);
 		return mOne;
+	}
+	@Override
+	public int insertIceCream(IceCream iceCream) {
+		int result = pStore.insertIceCream(session, iceCream);
+		return result;
 	}
 
 }

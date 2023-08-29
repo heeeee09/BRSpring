@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BRSystemMapper">
+	<resultMap type="BRSystem" id="BRSystemResultMap">
+		<id		property="brSystemId" 	column="BR_SYSTEM_ID"/>
+		<result property="brSystemPw" 	column="BR_SYSTEM_PW"/>
+		<result property="brSystemName" 	column="BR_SYSTEM_NAME"/>
+	</resultMap>
+
+	<select id="selectSystemId" resultMap="BRSystemResultMap">
+		SELECT * FROM BR_SYSTEM_TBL WHERE BR_SYSTEM_ID=#{brSystemId }
+	</select>
+</mapper>  

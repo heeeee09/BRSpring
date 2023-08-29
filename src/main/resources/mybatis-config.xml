@@ -9,13 +9,15 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="kr.co.baskinrobbins.member.domain.Member" alias="Member"/>
-		<typeAlias type="kr.co.baskinrobbins.member.domain.System" alias="System"/>
+		<typeAlias type="kr.co.baskinrobbins.member.domain.BRSystem" alias="BRSystem"/>
 		<typeAlias type="kr.co.baskinrobbins.board.domain.Board" alias="Board"/>
+		<typeAlias type="kr.co.baskinrobbins.product.domain.IceCream" alias="iceCream"/>
 	</typeAliases>
 	<!-- 메퍼 만들고 등록하기 -->
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
-		<mapper resource="mappers/system-mapper.xml"/>
+		<mapper resource="mappers/BRsystem-mapper.xml"/>
 		<mapper resource="mappers/board-mapper.xml"/>
+		<mapper resource="mappers/iceCream-mapper.xml"/>
 	</mappers>
 </configuration>  

@@ -17,7 +17,7 @@
     <div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <section>
-            <form name="insertForm" action="/product/insert.do" method="post">
+            <form name="insertForm" action="/product/insert.do" method="post" enctype="multipart/form-data">
             	<div id="productInsert">
 	            <p id="subject">아이스크림 메뉴 등록</p>
 	                <div id="id" class="insertBox">
@@ -30,11 +30,11 @@
 	                </div>	            
                     <div id="file">
                     	<label class="labels">이미지 등록</label>
-                    	<input class="upload-name" value="메뉴 이미지">
+                    	<input class="upload-name" value="메뉴 이미지" >
                     	<label for="fileBtn" id="fileLabel">메뉴 이미지</label>
                     	<input type="file" name="uploadFile" id="fileBtn" class="fileBtn">
                     </div>	          
-                    <button type="submit" id="insertBtn">등록</button>      
+                    <button type="button" id="insertBtn" onclick="iceInsertBtn()">등록</button>      
 	            </div>
             </form>
         </section>
@@ -43,8 +43,21 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
  	   <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
+ 	   function iceInsertBtn(){
+ 		  const iceName = document.querySelector("#iceName").value;
+		  const menuExplain = document.querySelector("#menuExplain").value;
+		  const menuImg = document.querySelector(".upload-name").value;
+		  if(iceName == '' || menuExplain == '' || menuImg == ''){
+			  alert("모든 정보를 입력 후 상품 등록을 할 수 있습니다.");
+		  } else {
+			  document.insertForm.submit();
+		  } 		   
+ 	   }
+		document.getElementById('fileBtn').addEventListener('change', () => {
+		    var fileName = document.getElementById('fileBtn').value;
+		    document.querySelector('.upload-name').value = fileName;
+		});
     </script>
-    
 </body>
 
 </html>
