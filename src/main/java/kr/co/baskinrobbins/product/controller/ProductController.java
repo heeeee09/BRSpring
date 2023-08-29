@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.lang.System;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,11 +34,13 @@ public class ProductController {
 	
 	@RequestMapping(value="/iceCream.do", method = RequestMethod.GET)
 	public ModelAndView showIcecreamMenu (
-			ModelAndView mv) {
-		mv.setViewName("/product/iceCream");
+			ModelAndView mv
+			, @ModelAttribute IceCream iceCream) {
+		List<IceCream> iceList = pService.selectIceList();
+		System.out.println(iceList.toString());
+		mv.addObject("iceList", iceList).setViewName("/product/iceCream");
 		return mv;
 	}
-	
 	/**
 	 * 관리자 계정으로 상품 등록하기
 	 * 관리자 계정으로 접속했을 때만 접속 가능함

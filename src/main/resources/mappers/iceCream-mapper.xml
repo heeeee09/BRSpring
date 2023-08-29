@@ -17,4 +17,7 @@
 	<insert id="insertIceCream">
 		INSERT INTO ICECREAM_TBL VALUES(#{iceName }, #{menuExplain }, #{fileName }, #{fileRename }, #{filePath }, #{fileLength }, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
+	<select id="selectIceList" resultMap="iceResultMap">
+		SELECT * FROM ICECREAM_TBL
+	</select>
 </mapper>  

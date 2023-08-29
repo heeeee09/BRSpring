@@ -1,5 +1,7 @@
 package kr.co.baskinrobbins.product.service;
 
+import java.util.List;
+
 import kr.co.baskinrobbins.member.domain.BRSystem;
 import kr.co.baskinrobbins.product.domain.IceCream;
 
@@ -18,5 +20,11 @@ public interface ProductService {
 	 * @return
 	 */
 	int insertIceCream(IceCream iceCream);
+
+	/**
+	 * 아이스크림 리스트 가져오기
+	 * @return
+	 */
+	List<IceCream> selectIceList();
 
 }

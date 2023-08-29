@@ -1,5 +1,7 @@
 package kr.co.baskinrobbins.product.service.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,11 @@ public class ProductServiceImpl implements ProductService{
 	public int insertIceCream(IceCream iceCream) {
 		int result = pStore.insertIceCream(session, iceCream);
 		return result;
+	}
+	@Override
+	public List<IceCream> selectIceList() {
+		List<IceCream> iceList = pStore.selectIceList(session);
+		return iceList;
 	}
 
 }

@@ -1,5 +1,7 @@
 package kr.co.baskinrobbins.product.store;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import kr.co.baskinrobbins.member.domain.Member;
@@ -23,5 +25,12 @@ public interface ProductStore {
 	 * @return
 	 */
 	int insertIceCream(SqlSession session, IceCream iceCream);
+
+	/**
+	 * 아이스크림 메뉴 리스트로 가져오기
+	 * @param session
+	 * @return
+	 */
+	List<IceCream> selectIceList(SqlSession session);
 
 }

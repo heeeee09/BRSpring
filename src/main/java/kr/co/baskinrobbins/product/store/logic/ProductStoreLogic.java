@@ -1,5 +1,7 @@
 package kr.co.baskinrobbins.product.store.logic;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +22,12 @@ public class ProductStoreLogic implements ProductStore{
 	public int insertIceCream(SqlSession session, IceCream iceCream) {
 		int result = session.insert("iceCreamMapper.insertIceCream", iceCream);
 		return result;
+	}
+
+	@Override
+	public List<IceCream> selectIceList(SqlSession session) {
+		List<IceCream> iceList = session.selectList("iceCreamMapper.selectIceList");
+		return iceList;
 	}
 
 }
