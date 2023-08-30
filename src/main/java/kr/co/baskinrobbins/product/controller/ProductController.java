@@ -59,22 +59,21 @@ public class ProductController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/iceCream.do", method = RequestMethod.GET)
-	public ModelAndView showIceCreamMenu (
+	@RequestMapping(value="/menu.do", method = RequestMethod.GET)
+	public ModelAndView showProductMenu (
 			ModelAndView mv
 			, @RequestParam(value="page", required = false, defaultValue = "1") Integer currentPage
 			, @ModelAttribute Product product) {
 		// totalCount는 아이스크림 테이블이 아니라 메뉴 테이블에서 구해옴
 		// 메뉴 테이블에서 WHERE 조건에 입력할 데이터
-		product.setMenuType("iceCream");
 		String menuType = product.getMenuType();
 		// menuType과 일치하는 값의 총 갯수
 		int totalCount = pService.selectTypeCount(menuType);
 		PageInfo pInfo = this.getPageInfo(currentPage, menuType, totalCount);
 		System.out.println(totalCount);
-		List<IceCream> iceList = pService.selectIceList(pInfo);
-		System.out.println(iceList.toString());
-		mv.addObject("iceList", iceList).addObject("pInfo", pInfo).setViewName("/product/iceCream");
+		List<Product> pList = pService.selectIceList(pInfo);
+		System.out.println(pList.toString());
+		mv.addObject("iceList", pList).addObject("pInfo", pInfo).setViewName("product/"+menuType);
 		return mv;
 	}
 	/**

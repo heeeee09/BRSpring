@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.baskinrobbins.member.domain.BRSystem;
 import kr.co.baskinrobbins.product.domain.IceCream;
 import kr.co.baskinrobbins.product.domain.PageInfo;
+import kr.co.baskinrobbins.product.domain.Product;
 import kr.co.baskinrobbins.product.store.ProductStore;
 
 @Repository
@@ -33,13 +34,13 @@ public class ProductStoreLogic implements ProductStore{
 	}
 
 	@Override
-	public List<IceCream> selectIceList(SqlSession session, PageInfo pInfo) {
+	public List<Product> selectIceList(SqlSession session, PageInfo pInfo) {
 		String menuType = pInfo.getmenuType();
 		int limit = pInfo.getrecordnaviCountPage();
 		int offset = (pInfo.getCurrentPage()-1) * limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);
-		List<IceCream> iceList = session.selectList("ProductMapper.selectIceList", menuType, rowBounds);
-		return iceList;
+		List<Product> pList = session.selectList("ProductMapper.selectIceList", menuType, rowBounds);
+		return pList;
 	}
 
 }

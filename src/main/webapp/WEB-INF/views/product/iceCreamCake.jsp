@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이스크림 메뉴</title>
+    <title>아이스크림 케이크 메뉴</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/product/menu.css">
     <link rel="stylesheet" href="../resources/css/common/reset.css">
@@ -25,7 +25,7 @@
                     <div id="dessert" class="menuCategory"><a href="/product/menu.do?menuType=dessert">디저트</a></div>
                 </div>
                 <div id="menuBox">
-                <div id="menuTitle">ICE CREAM</div>
+                <div id="menuTitle">ICE CREAM CAKE</div>
                 <input type="hidden" name="menuType" value="iceCream">
                 <!-- 반복문과 조건문을 사용해 리스트 출력하기
                 	iceList : 컨트롤러에서 보낸 DB의 데이터를 가진 List
