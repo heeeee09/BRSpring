@@ -72,7 +72,6 @@ public class ProductController {
 		PageInfo pInfo = this.getPageInfo(currentPage, menuType, totalCount);
 		System.out.println(totalCount);
 		List<Product> pList = pService.selectIceList(pInfo);
-		System.out.println(pList.toString());
 		mv.addObject("iceList", pList).addObject("pInfo", pInfo).setViewName("product/"+menuType);
 		return mv;
 	}
