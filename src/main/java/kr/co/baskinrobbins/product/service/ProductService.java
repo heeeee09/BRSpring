@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.baskinrobbins.member.domain.BRSystem;
 import kr.co.baskinrobbins.product.domain.IceCream;
+import kr.co.baskinrobbins.product.domain.PageInfo;
 
 public interface ProductService {
 
@@ -23,8 +24,16 @@ public interface ProductService {
 
 	/**
 	 * 아이스크림 리스트 가져오기
+	 * @param pInfo 
 	 * @return
 	 */
-	List<IceCream> selectIceList();
+	List<IceCream> selectIceList(PageInfo pInfo);
+
+	/**
+	 * 아이스크림 메뉴 타입별로 갯수 가져오기
+	 * @param menuType
+	 * @return
+	 */
+	int selectTypeCount(String menuType);
 
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductMapper">
+	<resultMap type="Product" id="ProductResultMap">
+		<id 	property="menuName" 	column="MENU_NAME"/>
+		<result property="menuEngName" 	column="MENU_ENG_NAME"/>
+		<result property="menuExplain" 	column="MENU_EXPLAIN"/>
+		<result property="menuType" 	column="MENU_TYPE"/>
+		<result property="menuHotIce" 	column="MENU_HOT_ICE"/>
+		<result property="menuPrice" 	column="MENU_TYPE"/>
+		<result property="menuImgName" 	column="MENU_IMG_NAME"/>
+		<result property="menuImgRename"	column="MENU_IMG_RENAME"/>
+		<result property="menuImgPath" 	column="MENU_IMG_PATH"/> 
+		<result property="menuImgLength" column="MENU_IMG_LENGTH"/>
+		<result property="menuCreate" 	column="MENU_CREATE"/>
+		<result property="menuUpdate" 	column="MENU_UPDATE"/>
+		<result property="menuStatus" 	column="MENU_STATUS"/>
+	</resultMap>
+<!-- 	<insert id="insertIceCream"> -->
+<!-- 		INSERT INTO ICECREAM_TBL VALUES(#{iceName }, #{iceEngName }, #{menuExplain }, #{menuType }, #{iceImgName }, #{iceImgRename }, #{iceImgPath }, #{iceImgLength }, DEFAULT, DEFAULT, DEFAULT) -->
+<!-- 	</insert> -->
+<!-- 	<select id="selectIceList" resultMap="iceResultMap"> -->
+<!-- 		SELECT * FROM ICECREAM_TBL -->
+<!-- 	</select> -->
+	<select id="selectTypeCount" resultType="_int">
+		SELECT COUNT(*) FROM MENU_TBL JOIN ICECREAM_TBL USING (MENU_TYPE) WHERE MENU_TYPE=#{menuType }
+	</select>
+		<select id="selectIceList" resultMap="ProductResultMap">
+		SELECT * FROM MENU_TBL JOIN ICECREAM_TBL USING (MENU_TYPE) WHERE MENU_TYPE = #{menuType} ORDER BY MENU_NAME ASC
+	</select>
+</mapper>  

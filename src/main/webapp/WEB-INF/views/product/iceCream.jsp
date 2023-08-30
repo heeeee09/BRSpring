@@ -26,6 +26,7 @@
                 </div>
                 <div id="menuBox">
                 <div id="menuTitle">ICE CREAM</div>
+                <input type="hidden" name="menuType" value="iceCream">
                 <!-- 반복문과 조건문을 사용해 리스트 출력하기
                 	iceList : 컨트롤러에서 보낸 DB의 데이터를 가진 List
                 	status : 반복 상태를 알 수 있는 변수
@@ -40,7 +41,7 @@
 		                    	<c:forEach var="i" begin="${ status.index }" end="${ status.index + (4 - 1) }" step="1">
 		                    		<c:if test="${iceList[i] ne null }">
 					                    <div>
-					                        <a href="/product/iceCream/31Yogurt.do"><img src="${iceList[i].filePath }" alt="31요거트"></a>
+					                        <a href="/product/iceCream/31Yogurt.do"><img src="${iceList[i].iceImgPath }" alt="31요거트"></a>
 					                        <p class="iceName">${iceList[i].iceName }</p>
 					                        <p class="iceType">CONE & CUP</p>
 					                        <button class="orderBtn" name="31yogurt">장바구니에 담기</button>
@@ -53,7 +54,7 @@
             </div>
             <c:if test="${memberId == 'brsystem' }">
 	            <div id="insert">
-	            	<button id="insertBtn" type="button" onclick="productInsert()">상품 등록하기</button>
+	            	<button id="insertBtn" type="button" onclick="productInsert()">메뉴 등록하기</button>
 	            </div>
 			</c:if>	            
         </section>
@@ -62,8 +63,8 @@
 
     <script>
     	<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
-    	productInsert = () => {
-    		location.href="/product/insert.do"
+   		productInsert = () => {
+    		location.href="/product/selectInsert.do"
     	}
     </script>
 </html>

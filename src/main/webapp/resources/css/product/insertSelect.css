@@ -1,0 +1,36 @@
+@charset "UTF-8";
+#print {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+#main {
+	display: flex;
+	justify-content: center;
+	margin: 50px;
+	flex-direction: column
+}
+#insertBox {
+	display: flex;
+	justify-content: center;
+	
+}
+.btn {
+	width: 230px;
+    height: 70px;
+    margin: 50px;
+    border-radius: 50px;
+    font-size: 25px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #974EC3;
+    cursor: pointer !important;
+    margin-bottom : 40px;	
+}
+#flavor {
+	width: 270px;
+}

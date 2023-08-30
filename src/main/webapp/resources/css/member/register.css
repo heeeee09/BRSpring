@@ -1,4 +1,4 @@
-#joinBox {
+﻿inBox {
     /* border: 5px solid #555; */
     padding: 50px;
     display: flex;
@@ -122,4 +122,12 @@ input {
 	﻿font-size : 20px;
 	padding: 10px;
 }
-
+#subject {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 35px;
+    font-weight : bold;
+    text-align: center;
+    color: #402022;
+    padding: 30px;
+    text-align: center;
+}

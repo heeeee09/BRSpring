@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.baskinrobbins.member.domain.BRSystem;
 import kr.co.baskinrobbins.product.domain.IceCream;
+import kr.co.baskinrobbins.product.domain.PageInfo;
 import kr.co.baskinrobbins.product.service.ProductService;
 import kr.co.baskinrobbins.product.store.ProductStore;
 
@@ -28,9 +29,15 @@ public class ProductServiceImpl implements ProductService{
 		int result = pStore.insertIceCream(session, iceCream);
 		return result;
 	}
+	
 	@Override
-	public List<IceCream> selectIceList() {
-		List<IceCream> iceList = pStore.selectIceList(session);
+	public int selectTypeCount(String menuType) {
+		int result = pStore.selectTypeCount(session, menuType);
+		return 0;
+	}
+	@Override
+	public List<IceCream> selectIceList(PageInfo pInfo) {
+		List<IceCream> iceList = pStore.selectIceList(session, pInfo);
 		return iceList;
 	}
 

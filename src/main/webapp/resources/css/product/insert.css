@@ -12,6 +12,7 @@
 	display: flex;
     flex-direction: column;
     align-items: center;
+	padding: 20px;    
 	
 }
 input {
@@ -19,7 +20,7 @@ input {
 	padding: 10px;
 }
 .labels {
-    width: 200px;
+	width: 300px;
     display: inline-block;
 	font-size: 30px;
     color: #402022;
@@ -28,10 +29,11 @@ input {
     
 }
 input[type=text] {
-    width: 500px;
+	width: 720px;
     height: 50px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    font-size: 20px;
 }
 .upload-name {
     display: inline-block;
@@ -39,10 +41,11 @@ input[type=text] {
     padding: 0 10px;
     vertical-align: middle;
     border: 1px solid #dddddd;
-    width: 370px;
+	width: 570px;
     margin-left: 5px;
     color: #999999;
     border-radius: 10px;
+    font-size: 20px;
 }
 #fileLabel {
     width: 130px;
@@ -90,4 +93,15 @@ input[type=text] {
     background-color: #974EC3;
     cursor: pointer !important;
     margin-bottom : 40px;
+}
+.insertBox {
+	padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.category {
+	font-size: 25px;
+    font-family: 'Nanum Gothic', sans-serif;
+	padding-left: 30px;
+    padding-right: 10px;
 }

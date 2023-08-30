@@ -217,17 +217,17 @@ public class BoardController {
 	}
 	
 	
+	/**
+	 *  페이지 네비게이션이 모든 게시물의 정보를 가지고 출력이 되어(모든 유저의 게시글을 가져와)
+	 *  totalCount를 구할 때 세션에서 가져온 boardWriter를 넘겨주어 처음부터 로그인한 유저의 글만 가져오도록함
+	 *  class파일들과 mapper까지 모두 수정했음 
+	 */
 	@RequestMapping(value="board/list.do", method = RequestMethod.GET)
 	public String showBoardList(
 		@RequestParam(value="page", required = false, defaultValue = "1") Integer currentPage
 		, HttpSession session
 		, Model model) {
 		String boardWriter = (String)session.getAttribute("memberId");
-		/*
-		 *  페이지 네비게이션이 모든 게시물의 정보를 가지고 출력이 되어(모든 유저의 게시글을 가져와)
-		 *  totalCount를 구할 때 세션에서 가져온 boardWriter를 넘겨주어 처음부터 로그인한 유저의 글만 가져오도록함
-		 *  class파일들과 mapper까지 모두 수정했음 
-		 */
 		try {
 			int totalCount = service.getBoardListCount(boardWriter); // 게시글 총 갯수를 구해오는 식
 			PageInfo pInfo = this.getPageInfo(currentPage, boardWriter, totalCount); 

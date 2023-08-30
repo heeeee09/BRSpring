@@ -19,14 +19,23 @@
         <section>
             <form name="insertForm" action="/product/insert.do" method="post" enctype="multipart/form-data">
             	<div id="productInsert">
-	            <p id="subject">아이스크림 메뉴 등록</p>
-	                <div id="id" class="insertBox">
+	            <p id="subject">아이스크림 맛 등록</p>
+	                <div id="name" class="insertBox">
 	                    <label for="productName" class="labels">메뉴 이름</label>
 	                    <input type="text" name="iceName" id="iceName" >
 	                </div>	            
-	                <div id="id" class="insertBox">
+	                <div id="explain" class="insertBox">
 	                    <label for="productExplain" class="labels">메뉴 설명</label>
 	                    <input type="text" name="menuExplain" id="menuExplain" >
+	                </div>	            
+	                <div id="type" class="insertBox">
+	                    <label for="productType" class="labels">메뉴 카테고리</label>
+	                    <label class="typeRadio">아이스크림</label><input type="radio" value="iceCream">
+	                    <label class="typeRadio">아이스크림 케이크</label><input type="radio" value="iceCream">
+	                    <label class="typeRadio">아이스크림 </label><input type="radio" value="iceCream">
+	                    <label class="typeRadio">아이스크림</label><input type="radio" value="iceCream">
+	                    <label class="typeRadio">아이스크림</label><input type="radio" value="iceCream">
+	                    <input type="text" name="menuType" id="menuType" >
 	                </div>	            
                     <div id="file">
                     	<label class="labels">이미지 등록</label>

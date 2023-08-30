@@ -2,22 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="iceCreamMapper">
+<mapper namespace="IceCreamMapper">
 	<resultMap type="iceCream" id="iceResultMap">
 		<id property="iceName" 			column="ICE_NAME"/>
+		<result property="iceEngName" 	column="ICE_ENG_NAME"/>
 		<result property="menuExplain" 	column="MENU_EXPLAIN"/>
-		<result property="fileName" 	column="ICE_IMG_NAME"/>
-		<result property="fileRename"	column="ICE_IMG_RENAME"/>
-		<result property="filePath" 	column="ICE_IMG_PATH"/>
-		<result property="fileLength" 	column="ICE_IMG_LENGTH"/>
+		<result property="menuType" 	column="MENU_TYPE"/>
+		<result property="iceImgName" 	column="ICE_IMG_NAME"/>
+		<result property="iceImgRename"	column="ICE_IMG_RENAME"/>
+		<result property="iceImgPath" 	column="ICE_IMG_PATH"/>
+		<result property="iceImgLength" column="ICE_IMG_LENGTH"/>
 		<result property="iceCreate" 	column="ICE_CREATE"/>
 		<result property="iceUpdate" 	column="ICE_UPDATE"/>
 		<result property="iceStatus" 	column="ICE_STATUS"/>
 	</resultMap>
 	<insert id="insertIceCream">
-		INSERT INTO ICECREAM_TBL VALUES(#{iceName }, #{menuExplain }, #{fileName }, #{fileRename }, #{filePath }, #{fileLength }, DEFAULT, DEFAULT, DEFAULT)
+		INSERT INTO ICECREAM_TBL VALUES(#{iceName }, #{iceEngName }, #{menuExplain }, #{menuType }, #{iceImgName }, #{iceImgRename }, #{iceImgPath }, #{iceImgLength }, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
-	<select id="selectIceList" resultMap="iceResultMap">
-		SELECT * FROM ICECREAM_TBL
-	</select>
 </mapper>  
