@@ -28,6 +28,11 @@
 	                    <label for="productEngName" class="labels">아이스크림 영어 이름</label>
 	                    <input type="text" name="iceEngName" id="iceName" >
 	                </div>	            
+	                <div id="name" class="insertBox">
+	                    <label for="productName" class="labels">아이스크림 고유 이름</label>
+	                    <input type="text" name="icePkName" id="iceName" >
+	                </div>	            
+	                    <span id="writeMsg">작성법 : 31YOGURT -> 31Yogurt, ALMONB BON BON -> alMondBonBon</span>
 	                <div id="explain" class="insertBox">
 	                    <label for="productExplain" class="labels">아이스크림 설명</label>
 	                    <input type="text" name="menuExplain" id="menuExplain" >

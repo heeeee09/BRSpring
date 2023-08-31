@@ -26,7 +26,7 @@
                 </div>
                 <div id="menuBox">
                 <div id="menuTitle">ICE CREAM</div>
-                <input type="hidden" name="menuType" value="iceCream">
+                <input type="hidden" name="menuType" value="iceCreamCake">
                 <!-- 반복문과 조건문을 사용해 리스트 출력하기
                 	iceList : 컨트롤러에서 보낸 DB의 데이터를 가진 List
                 	status : 반복 상태를 알 수 있는 변수
@@ -35,14 +35,14 @@
                 	end="${ status.index + (4 - 1) }" (인덱스 +3일 때까지(인덱스는 0부터 시작하니)) step="1" (1씩 증가)
                 	${iceList[i] ne null } : 리스트의 값이 비어있을 때까지
                  -->
-                	<c:forEach var="iceCream" items="${iceList }" varStatus="status">
+                	<c:forEach var="product" items="${productList }" varStatus="status">
                 		<div class="menus">
                 		<c:if test="${status.index % 4 eq 0 }">
 		                    	<c:forEach var="i" begin="${ status.index }" end="${ status.index + (4 - 1) }" step="1">
-		                    		<c:if test="${iceList[i] ne null }">
+		                    		<c:if test="${productList[i] ne null }">
 					                    <div>
-					                        <a href="/product/iceCream/31Yogurt.do"><img src="${iceList[i].iceImgPath }" alt="31요거트"></a>
-					                        <p class="iceName">${iceList[i].iceName }</p>
+					                        <a href="/product/iceCream/31Yogurt.do"><img src="${productList[i].iceImgPath }" alt="${productList[i].iceName }"></a>
+					                        <p class="iceName">${productList[i].iceName }</p>
 					                        <p class="iceType">CONE & CUP</p>
 					                        <button class="orderBtn" name="31yogurt">장바구니에 담기</button>
 					                    </div>

@@ -35,16 +35,15 @@
                 	end="${ status.index + (4 - 1) }" (인덱스 +3일 때까지(인덱스는 0부터 시작하니)) step="1" (1씩 증가)
                 	${iceList[i] ne null } : 리스트의 값이 비어있을 때까지
                  -->
-                	<c:forEach var="iceCream" items="${iceList }" varStatus="status">
+                	<c:forEach var="product" items="${productList }" varStatus="status">
                 		<div class="menus">
                 		<c:if test="${status.index % 4 eq 0 }">
 		                    	<c:forEach var="i" begin="${ status.index }" end="${ status.index + (4 - 1) }" step="1">
-		                    		<c:if test="${iceList[i] ne null }">
+		                    		<c:if test="${productList[i] ne null }">
 					                    <div>
-					                        <a href="/product/iceCream/31Yogurt.do"><img src="${iceList[i].iceImgPath }" alt="31요거트"></a>
-					                        <p class="iceName">${iceList[i].iceName }</p>
-					                        <p class="iceType">CONE & CUP</p>
-					                        <button class="orderBtn" name="31yogurt">장바구니에 담기</button>
+					                        <a href="/product/menu/detail.do"><img src="${productList[i].menuImgPath }" alt="${productList[i].menuName }"></a>
+					                        <p class="iceName">${productList[i].menuName }</p>
+					                        <button class="orderBtn" name="${productList[i].menuPkName }">장바구니에 담기</button>
 					                    </div>
 		                    		</c:if>
 		                    	</c:forEach>

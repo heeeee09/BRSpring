@@ -20,7 +20,7 @@ input {
 	padding: 10px;
 }
 .labels {
-	width: 300px;
+	width: 320px;
     display: inline-block;
 	font-size: 30px;
     color: #402022;
@@ -102,6 +102,12 @@ input[type=text] {
 .category {
 	font-size: 25px;
     font-family: 'Nanum Gothic', sans-serif;
-	padding-left: 30px;
+	padding-left: 26px;
     padding-right: 10px;
+}
+#writeMsg {
+	font-size: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color : #5d5d5d;
+    padding-bottom: 4px;
 }

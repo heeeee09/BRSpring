@@ -20,7 +20,28 @@
             <form name="insertForm" action="/product/insertProduct.do" method="post" enctype="multipart/form-data">
             	<div id="productInsert">
 	            <p id="subject">메뉴 등록</p>
-	                <div id="name" class="insertBox">
+	                <div id="typeSelect" class="insertBox">
+	                    <label for="productType" class="labels">메뉴 카테고리</label>
+	                    <p class="category">아이스크림</p><input type="radio" value="iceCream" name="category" checked="checked" onclick="showHideHotIce(); iceCream();">
+	                    <p class="category">아이스크림 케이크</p><input type="radio" name="category" value="iceCreamCake" onclick="showHideHotIce()">
+	                    <p class="category">커피</p><input type="radio" name="category" value="coffee" onclick="showHideHotIce()">
+	                    <p class="category">음료</p><input type="radio" name="category" value="beverage" onclick="showHideHotIce()">
+	                    <p class="category">디저트</p><input type="radio" name="category" value="dessert" onclick="showHideHotIce()">
+	                </div>	      
+	                <div id="hotIce" class="insertBox" style="display: none;">
+	                	<label for="productType" class="labels">HOT/ICE</label>
+	                	<p class="category">HOT</p><input type="radio" name="hotIce" value="hot" checked="checked">
+	                	<p class="category">ICE</p><input type="radio" name="hotIce" value="ice">
+	                </div>
+	                <div id="flavorCheck" class="insertBox" style="display: flex;">
+	                	<label for="iceCreamFlavor" class="labels">아이스크림 맛</label>
+	                	<p class="category">입력하기</p><input type="checkbox" name="flavor" value="flavor" onclick="flavorChecked()">
+	                </div>	   	                	   	                      
+	                <div id="flavorInsert" class="insertBox" style="display: none;">
+	                    <label for="flavorName" class="labels">메뉴 이름<br>(아이스크림 맛 입력)</label>
+	                    <input type="text" name="menuFalvor" id="menuFalvor" >
+	                </div>	            
+	                <div id="menuName" class="insertBox">
 	                    <label for="productName" class="labels">메뉴 이름</label>
 	                    <input type="text" name="menuName" id="menuName" >
 	                </div>	            
@@ -28,21 +49,20 @@
 	                    <label for="productEngName" class="labels">메뉴 영어 이름</label>
 	                    <input type="text" name="menuEngName" id="menuEngName" >
 	                </div>	            
+ 	                <div id="name" class="insertBox">
+	                    <label for="productName" class="labels">메뉴 고유 이름</label>
+	                    <input type="text" name="icePkName" id="iceName" >
+	                </div>	    
+	                    <span id="writeMsg">작성법 : 31YOGURT -> 31Yogurt, ALMONB BON BON -> alMondBonBon</span>
 	                <div id="explain" class="insertBox">
 	                    <label for="productExplain" class="labels">메뉴 설명</label>
 	                    <input type="text" name="menuExplain" id="menuExplain" >
 	                </div>
-	                <div id="typeSelect" class="insertBox">
-	                    <label for="productType" class="labels">메뉴 카테고리</label>
-	                    <p class="category">아이스크림</p><input type="radio" value="iceCream" name="category" checked="checked">
-	                    <p class="category">아이스크림 케이크</p><input type="radio" name="category" value="iceCreamCake">
-	                    <p class="category">커피</p><input type="radio" name="category" value="coffee">
-	                    <p class="category">음료</p><input type="radio" name="category" value="beverage">
-	                    <p class="category">디저트</p><input type="radio" name="category" value="dessert">
-	                </div>	            
+
+         
 	                <div id="file" class="insertBox">
 	                	<label class="labels">이미지 등록</label>
-	                	<input class="upload-name" value="메뉴 이미지" >
+	                	<input class="upload-name" value="" placeholder="이미지를 등록해주세요" >
 	                	<label for="fileBtn" id="fileLabel">메뉴 이미지</label>
 	                	<input type="file" name="uploadFile" id="fileBtn" class="fileBtn">
 	                </div>	          
@@ -70,6 +90,52 @@
 		    var fileName = document.getElementById('fileBtn').value;
 		    document.querySelector('.upload-name').value = fileName;
 		});
+		
+		// 커피, 음료 선택 시 HOT인지 ICE인지 입력하는 창이 출력됨
+	    function showHideHotIce() {
+	        var coffeeRadio = document.querySelector('input[name="category"][value="coffee"]');
+	        var beverageRadio = document.querySelector('input[name="category"][value="beverage"]');
+	        var hotIceDiv = document.querySelector('#hotIce');
+
+	        if (coffeeRadio.checked || beverageRadio.checked) {
+	            hotIceDiv.style.display = 'flex';
+	        } else {
+	            hotIceDiv.style.display = 'none';
+	        }
+	    }
+		
+		// 아이스크림 선택 시 아이스크림 맛을 입력할지 선택하는 창이 출력됨
+// 		function iceCream(){
+// 			var iceCreamCheck = document.querySelector('input[name="category"][value="iceCream"]');
+// 	        var flavorDiv = document.querySelector('#flavorCheck');
+// 	        var menuDiv = document.querySelector('#menuName');
+	        
+// 	        if (iceCreamCheck.checked) {
+// 	            flavorDiv.style.display = 'flex';
+// // 	            menuDiv.style.display = 'none';
+// 	        }
+// 			if (!iceCreamCheck.checked) {
+// 	            flavorDiv.style.display = 'none';
+// // 	            menuDiv.style.display = 'flex';
+// 	        }	        
+// 		}
+	    function iceCream() {
+	        var iceCreamCheck = document.querySelector('input[name="category"][value="iceCream"]');
+	        var flavorDiv = document.querySelector('#flavorCheck');
+	        
+	        if (iceCreamCheck.checked) {
+	            flavorDiv.style.display = 'flex';
+	        } else {
+	            flavorDiv.style.display = 'none';
+	        }
+	    }
+		
+		function flavorChecked() {
+			var flavorCheck = document.querySelector('input[name="flavor"][value="flavor"]');
+			var insertFlavor = document.querySelector('#flavorInsert');
+			var menuDiv = document.querySelector('#menuName');
+		}
+		// 아시
     </script>
 </body>
 
