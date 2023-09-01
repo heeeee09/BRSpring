@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProductMapper">
 	<resultMap type="Product" id="ProductResultMap">
-		<id property="menuPkName" 		column="MENU_PK_NAME"/>
+		<id 	property="menuPkName" 		column="MENU_PK_NAME"/>
 		<result	property="menuName" 	column="MENU_NAME"/>
 		<result property="menuEngName" 	column="MENU_ENG_NAME"/>
 		<result property="menuExplain" 	column="MENU_EXPLAIN"/>
@@ -20,6 +20,7 @@
 		<result property="menuUpdate" 	column="MENU_UPDATE"/>
 		<result property="menuStatus" 	column="MENU_STATUS"/>
 	</resultMap>
+	<insert id="">
 <!-- 	<insert id="insertIceCream"> -->
 <!-- 		INSERT INTO ICECREAM_TBL VALUES(#{iceName }, #{iceEngName }, #{menuExplain }, #{menuType }, #{iceImgName }, #{iceImgRename }, #{iceImgPath }, #{iceImgLength }, DEFAULT, DEFAULT, DEFAULT) -->
 <!-- 	</insert> -->

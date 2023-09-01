@@ -22,7 +22,7 @@
 	            <p id="subject">메뉴 등록</p>
 	                <div id="typeSelect" class="insertBox">
 	                    <label for="productType" class="labels">메뉴 카테고리</label>
-	                    <p class="category">아이스크림</p><input type="radio" value="iceCream" name="category" checked="checked" onclick="showHideHotIce(); iceCream();">
+	                    <p class="category">아이스크림</p><input type="radio" value="iceCream" name="category" checked="checked" onclick="showHideHotIce()" >
 	                    <p class="category">아이스크림 케이크</p><input type="radio" name="category" value="iceCreamCake" onclick="showHideHotIce()">
 	                    <p class="category">커피</p><input type="radio" name="category" value="coffee" onclick="showHideHotIce()">
 	                    <p class="category">음료</p><input type="radio" name="category" value="beverage" onclick="showHideHotIce()">
@@ -30,12 +30,12 @@
 	                </div>	      
 	                <div id="hotIce" class="insertBox" style="display: none;">
 	                	<label for="productType" class="labels">HOT/ICE</label>
-	                	<p class="category">HOT</p><input type="radio" name="hotIce" value="hot" checked="checked">
-	                	<p class="category">ICE</p><input type="radio" name="hotIce" value="ice">
+	                	<p class="category">HOT</p><input type="radio" class="hotIce" name="hotIce" value="hot" checked="checked">
+	                	<p class="category">ICE</p><input type="radio" class="hotIce" name="hotIce" value="ice">
 	                </div>
-	                <div id="flavorCheck" class="insertBox" style="display: flex;">
+	                <div id="flavorCheck" class="flavorBox" style="display: flex;">
 	                	<label for="iceCreamFlavor" class="labels">아이스크림 맛</label>
-	                	<p class="category">입력하기</p><input type="checkbox" name="flavor" value="flavor" onclick="flavorChecked()">
+	                	<p class="category">입력하기</p><input type="checkbox" name="flavor" id="falvor" value="flavor" onclick="flavorChecked()">
 	                </div>	   	                	   	                      
 	                <div id="flavorInsert" class="insertBox" style="display: none;">
 	                    <label for="flavorName" class="labels">메뉴 이름<br>(아이스크림 맛 입력)</label>
@@ -92,49 +92,44 @@
 		});
 		
 		// 커피, 음료 선택 시 HOT인지 ICE인지 입력하는 창이 출력됨
+		// 아이스크림 선택 시 아이스크림 맛을 입력할지 선택하는 창이 출력됨
 	    function showHideHotIce() {
 	        var coffeeRadio = document.querySelector('input[name="category"][value="coffee"]');
 	        var beverageRadio = document.querySelector('input[name="category"][value="beverage"]');
 	        var hotIceDiv = document.querySelector('#hotIce');
+
+	        var iceCreamCheck = document.querySelector('input[name="category"][value="iceCream"]');
+	        var flavorDiv = document.querySelector('#flavorCheck');
 
 	        if (coffeeRadio.checked || beverageRadio.checked) {
 	            hotIceDiv.style.display = 'flex';
 	        } else {
 	            hotIceDiv.style.display = 'none';
 	        }
-	    }
-		
-		// 아이스크림 선택 시 아이스크림 맛을 입력할지 선택하는 창이 출력됨
-// 		function iceCream(){
-// 			var iceCreamCheck = document.querySelector('input[name="category"][value="iceCream"]');
-// 	        var flavorDiv = document.querySelector('#flavorCheck');
-// 	        var menuDiv = document.querySelector('#menuName');
 	        
-// 	        if (iceCreamCheck.checked) {
-// 	            flavorDiv.style.display = 'flex';
-// // 	            menuDiv.style.display = 'none';
-// 	        }
-// 			if (!iceCreamCheck.checked) {
-// 	            flavorDiv.style.display = 'none';
-// // 	            menuDiv.style.display = 'flex';
-// 	        }	        
-// 		}
-	    function iceCream() {
-	        var iceCreamCheck = document.querySelector('input[name="category"][value="iceCream"]');
-	        var flavorDiv = document.querySelector('#flavorCheck');
-	        
-	        if (iceCreamCheck.checked) {
-	            flavorDiv.style.display = 'flex';
+	        if(iceCreamCheck.checked) {
+	            flavorDiv.style.display = "flex";
 	        } else {
-	            flavorDiv.style.display = 'none';
+	            flavorDiv.style.display = "none";
 	        }
 	    }
 		
-		function flavorChecked() {
-			var flavorCheck = document.querySelector('input[name="flavor"][value="flavor"]');
-			var insertFlavor = document.querySelector('#flavorInsert');
-			var menuDiv = document.querySelector('#menuName');
-		}
+		// 아이스크림 맛을 체크할 것인지, 체크하면 아이스크림 맛을 입력하는 div가 출력된다. 
+		 function flavorChecked() {
+			    var falvorCheckbox = document.getElementById("falvor");
+			    var flavorInsertDiv = document.getElementById("flavorInsert");
+			    var menuNameInsertDiv = document.getElementById("menuName");
+
+			    if (falvorCheckbox.checked) {
+			        flavorInsertDiv.style.display = 'flex'; // 'block'으로 설정하여 표시
+			        menuNameInsertDiv.style.display = 'none'; // 'block'으로 설정하여 표시
+			    } else {
+			        flavorInsertDiv.style.display = 'none'; // 'none'으로 설정하여 숨김
+			        menuNameInsertDiv.style.display = 'flex'; // 'block'으로 설정하여 표시
+			    }
+			}
+
+
 		// 아시
     </script>
 </body>

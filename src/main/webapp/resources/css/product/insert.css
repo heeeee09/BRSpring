@@ -99,10 +99,15 @@ input[type=text] {
     display: flex;
     align-items: center;
 }
+#flavorCheck {
+	padding: 10px;
+    align-items: center;	
+/*     display: none !important; */
+}
 .category {
 	font-size: 25px;
     font-family: 'Nanum Gothic', sans-serif;
-	padding-left: 26px;
+	padding-left: 17px;
     padding-right: 10px;
 }
 #writeMsg {
@@ -110,4 +115,20 @@ input[type=text] {
     font-family: 'Nanum Gothic', sans-serif;
     color : #5d5d5d;
     padding-bottom: 4px;
+}
+.hotIce {
+	width: 100px;
+    margin-right: 180px;
+}
+input[type=radio] {
+    width: 20px;
+    height: 20px;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+input#falvor {
+    margin-right: 580px;
 }
