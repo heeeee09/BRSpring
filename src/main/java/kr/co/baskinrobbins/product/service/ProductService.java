@@ -37,4 +37,11 @@ public interface ProductService {
 	 */
 	int selectTypeCount(String menuType);
 
+	/**
+	 * 메뉴 입력
+	 * @param product
+	 * @return
+	 */
+	int insertProduct(Product product);
+
 }

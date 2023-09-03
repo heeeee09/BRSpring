@@ -44,4 +44,12 @@ public interface ProductStore {
 	 */
 	int selectTypeCount(SqlSession session, String menuType);
 
+	/**
+	 * 메뉴 입력
+	 * @param session
+	 * @param product
+	 * @return
+	 */
+	int insertProduct(SqlSession session, Product product);
+
 }

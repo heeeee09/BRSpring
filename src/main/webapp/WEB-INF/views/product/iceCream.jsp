@@ -41,8 +41,8 @@
 		                    	<c:forEach var="i" begin="${ status.index }" end="${ status.index + (4 - 1) }" step="1">
 		                    		<c:if test="${productList[i] ne null }">
 					                    <div>
-					                        <a href="/product/iceCream/31Yogurt.do"><img src="${productList[i].iceImgPath }" alt="${productList[i].iceName }"></a>
-					                        <p class="iceName">${productList[i].iceName }</p>
+					                        <a href="/product/iceCream/31Yogurt.do"><img src="${productList[i].menuImgPath }" alt="${productList[i].menuName }"></a>
+					                        <p class="iceName">${productList[i].menuName }</p>
 					                        <p class="iceType">CONE & CUP</p>
 					                        <button class="orderBtn" name="31yogurt">장바구니에 담기</button>
 					                    </div>
@@ -64,7 +64,7 @@
     <script>
     	<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
    		productInsert = () => {
-    		location.href="/product/selectInsert.do"
+    		location.href="/product/insertProduct.do"
     	}
     </script>
 </html>

@@ -43,4 +43,10 @@ public class ProductStoreLogic implements ProductStore{
 		return pList;
 	}
 
+	@Override
+	public int insertProduct(SqlSession session, Product product) {
+		int result = session.insert("ProductMapper.insertProduct", product);
+		return result;
+	}
+
 }

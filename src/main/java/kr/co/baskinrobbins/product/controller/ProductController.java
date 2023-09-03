@@ -70,8 +70,8 @@ public class ProductController {
 		// menuType과 일치하는 값의 총 갯수
 		int totalCount = pService.selectTypeCount(menuType);
 		PageInfo pInfo = this.getPageInfo(currentPage, menuType, totalCount);
-		System.out.println(totalCount);
 		List<Product> pList = pService.selectIceList(pInfo);
+		System.out.println(pList.size());
 		mv.addObject("productList", pList).addObject("pInfo", pInfo).setViewName("product/"+menuType);
 		return mv;
 	}
@@ -162,8 +162,7 @@ public class ProductController {
 				product.setMenuImgLength((long)pMap.get("fileLength"));
 			}
 			String category = product.getMenuType();
-			int result = 0; 
-//					pService.insertProduct(product);
+			int result = pService.insertProduct(product);
 			if(result > 0) {
 				mv.setViewName("/product/"+category);
 			} else {

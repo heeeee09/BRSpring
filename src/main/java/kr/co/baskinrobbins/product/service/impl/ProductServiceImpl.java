@@ -41,5 +41,10 @@ public class ProductServiceImpl implements ProductService{
 		List<Product> pList = pStore.selectIceList(session, pInfo);
 		return pList;
 	}
+	@Override
+	public int insertProduct(Product product) {
+		int result = pStore.insertProduct(session, product);
+		return result;
+	}
 
 }

@@ -22,11 +22,11 @@
 	            <p id="subject">메뉴 등록</p>
 	                <div id="typeSelect" class="insertBox">
 	                    <label for="productType" class="labels">메뉴 카테고리</label>
-	                    <p class="category">아이스크림</p><input type="radio" value="iceCream" name="category" checked="checked" onclick="showHideHotIce()" >
-	                    <p class="category">아이스크림 케이크</p><input type="radio" name="category" value="iceCreamCake" onclick="showHideHotIce()">
-	                    <p class="category">커피</p><input type="radio" name="category" value="coffee" onclick="showHideHotIce()">
-	                    <p class="category">음료</p><input type="radio" name="category" value="beverage" onclick="showHideHotIce()">
-	                    <p class="category">디저트</p><input type="radio" name="category" value="dessert" onclick="showHideHotIce()">
+	                    <p class="category">아이스크림</p><input type="radio" value="iceCream" name="menuType" checked="checked" onclick="showHideHotIce()" >
+	                    <p class="category">아이스크림 케이크</p><input type="radio" name="menuType" value="iceCreamCake" onclick="showHideHotIce()">
+	                    <p class="category">커피</p><input type="radio" name="menuType" value="coffee" onclick="showHideHotIce()">
+	                    <p class="category">음료</p><input type="radio" name="menuType" value="beverage" onclick="showHideHotIce()">
+	                    <p class="category">디저트</p><input type="radio" name="menuType" value="dessert" onclick="showHideHotIce()">
 	                </div>	      
 	                <div id="hotIce" class="insertBox" style="display: none;">
 	                	<label for="productType" class="labels">HOT/ICE</label>
@@ -51,12 +51,16 @@
 	                </div>	            
  	                <div id="name" class="insertBox">
 	                    <label for="productName" class="labels">메뉴 고유 이름</label>
-	                    <input type="text" name="icePkName" id="iceName" >
+	                    <input type="text" name="menuPkName" id="iceName" >
 	                </div>	    
 	                    <span id="writeMsg">작성법 : 31YOGURT -> 31Yogurt, ALMONB BON BON -> alMondBonBon</span>
 	                <div id="explain" class="insertBox">
 	                    <label for="productExplain" class="labels">메뉴 설명</label>
 	                    <input type="text" name="menuExplain" id="menuExplain" >
+	                </div>
+	                <div id="price" class="insertBox">
+	                    <label for="productPrice" class="labels">메뉴 가격</label>
+	                    <input type="text" name="menuPeice" id="menuPrice" >
 	                </div>
 
          
@@ -115,17 +119,21 @@
 	    }
 		
 		// 아이스크림 맛을 체크할 것인지, 체크하면 아이스크림 맛을 입력하는 div가 출력된다. 
+		// 메뉴 가격 입력 페이지도 숨김으로
 		 function flavorChecked() {
 			    var falvorCheckbox = document.getElementById("falvor");
 			    var flavorInsertDiv = document.getElementById("flavorInsert");
 			    var menuNameInsertDiv = document.getElementById("menuName");
+			    var menuPriceInsertDiv = document.getElementById("price");
 
 			    if (falvorCheckbox.checked) {
 			        flavorInsertDiv.style.display = 'flex'; // 'block'으로 설정하여 표시
-			        menuNameInsertDiv.style.display = 'none'; // 'block'으로 설정하여 표시
+			        menuNameInsertDiv.style.display = 'none'; // 'none'으로 설정하여 숨김
+			        menuPriceInsertDiv.style.display = 'none'; // 'none'으로 설정하여 숨김
 			    } else {
 			        flavorInsertDiv.style.display = 'none'; // 'none'으로 설정하여 숨김
 			        menuNameInsertDiv.style.display = 'flex'; // 'block'으로 설정하여 표시
+			        menuPriceInsertDiv.style.display = 'flex'; // 'block'으로 설정하여 표시
 			    }
 			}
 

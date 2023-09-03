@@ -64,7 +64,7 @@
     <script>
     	<jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
    		productInsert = () => {
-    		location.href="/product/selectInsert.do"
+    		location.href="/product/insertProduct.do"
     	}
     </script>
 </html>
