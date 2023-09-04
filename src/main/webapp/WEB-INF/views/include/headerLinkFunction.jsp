@@ -16,5 +16,5 @@
             location.href = "/product/menu.do?menuType=iceCream";
         }
         function storeLink() {
-            location.href = "/store/storeSearch.html";
+            location.href = "/store/search.do";
         }
