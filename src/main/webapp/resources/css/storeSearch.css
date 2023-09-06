@@ -61,6 +61,7 @@ select {
 }
 #searchBox {
     display: flex;
+    justify-content: center;
 }
 #lineCol {
     height: 600px;
@@ -68,6 +69,6 @@ select {
     margin: 30px;
 }
 #map {
-    width: 650px;
+    width: 900px;
     margin: 50px;
 }

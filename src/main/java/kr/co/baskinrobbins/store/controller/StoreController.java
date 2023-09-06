@@ -22,7 +22,8 @@ public class StoreController {
     public ModelAndView showStore(ModelAndView mv) {
         List<Store> sList = sService.allStoreList();
         if(sList.size() > 0) {
-        	mv.addObject("sList", sList).setViewName("/store/storeSearch");
+        	mv.addObject("sList", sList);
+        	mv.setViewName("/store/search");
         }
         return mv;
     }
