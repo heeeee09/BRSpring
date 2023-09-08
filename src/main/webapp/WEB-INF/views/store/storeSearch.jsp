@@ -67,31 +67,31 @@
 	    <script>
 	    <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
 	    
-	        function initMap() {
-	        var seoul = { lat: 37.5543, lng: 126.9712 };
-	        var map = new google.maps.Map(
-	            document.getElementById('map'), {
-	   			disableDefaultUI:true,
-	   			zoomControl: true,
-	            zoom: 15,
-	            center: seoul
-	            });
+// 	        function initMap() {
+// 	        var seoul = { lat: 37.5543, lng: 126.9712 };
+// 	        var map = new google.maps.Map(
+// 	            document.getElementById('map'), {
+// 	   			disableDefaultUI:true,
+// 	   			zoomControl: true,
+// 	            zoom: 15,
+// 	            center: seoul
+// 	            });
 	        
-		     // DB에서 가져온 위도와 경도 정보를 반복하여 마커 생성
-		     var locations = [
-		         { lat: 37.5543, lng: 126.9712 }, // 예시 데이터, 실제 데이터로 바꿔주세요
-		         // 추가 데이터...
-		     ];
+// 		     // DB에서 가져온 위도와 경도 정보를 반복하여 마커 생성
+// 		     var locations = [
+// 		         { lat: 37.5543, lng: 126.9712 }, // 예시 데이터, 실제 데이터로 바꿔주세요
+// 		         // 추가 데이터...
+// 		     ];
 		
-		     for (var i = 0; i < locations.length; i++) {
-		         var marker = new google.maps.Marker({
-		             position: locations[i],
-		             map: map,
-		             title: '매장 ' + i // 마커에 툴팁 텍스트 설정 (선택사항)
-		         });
-		     }
+// 		     for (var i = 0; i < locations.length; i++) {
+// 		         var marker = new google.maps.Marker({
+// 		             position: locations[i],
+// 		             map: map,
+// 		             title: '매장 ' + i // 마커에 툴팁 텍스트 설정 (선택사항)
+// 		         });
+// 		     }
 		        
-		        }
+// 		        }
 	    
 	//         function initMap() {
 	//         var seoul = { lat: 37.5642135 ,lng: 127.0016985 };

@@ -31,7 +31,7 @@
                             <option value="">중구</option>
                             <option value="">용산구</option>
                         </select>
-                        <a href="#"><img src="../resource/image/search.png" alt="" id="searchIcon"></a>
+                        <a href="#"><img src="../resources/image/search.png" alt="" id="searchIcon"></a>
                         </div>
                         <div id="line1"></div>
                         <div class="searchList">
@@ -80,7 +80,6 @@
             </section>
         </footer>
     </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEAgVkVw2ATyuPxCvBQ2xROvykAfaMrpA&callback=initMap&region=kr"></script>
 	<script type="text/javascript">
     <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
 		
@@ -107,31 +106,54 @@
 	    // marker.setMap(null); 	
 	    
 	    // 마커를 표시할 위치와 title 객체 배열입니다 
-		var positions = [
-		    {
-		        title: '카카오', 
-		        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-		    },
-		    {
-		        title: '생태연못', 
-		        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-		    },
-		    {
-		        title: '텃밭', 
-		        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-		    },
-		    {
-		        title: '근린공원',
-		        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-		    }
-		];
+// 		var positions = [
+// 		    {
+// 		        title: '카카오', 
+// 		        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+// 		    },
+// 		    {
+// 		        title: '생태연못', 
+// 		        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+// 		    },
+// 		    {
+// 		        title: '텃밭', 
+// 		        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+// 		    },
+// 		    {
+// 		        title: '근린공원',
+// 		        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+// 		    }
+// 		];
 	    
-        var data = ${sList };
-        console.log(data);
-//         display.innerHTML = 'Title: ' + sList.title + '<br>' +
-//                             'Lat: ' + sList.lat + '<br>' +
-//                             'Lng: ' + sList.lng;
-		
+	    // 컨트롤러에서 보낸 데이터를 저장받는 변수
+        
+        // 데이터들을 저장할 배열 선언
+        var positions = [];
+
+	     // 100개의 데이터를 추가하는 for 루프
+	     for (var i = 0; i < ${size }; i++) {
+        var title =  "${title }";
+        var address =  "${address }";
+        var lat =  "${lat }";
+        var lng =  "${lng }";
+        console.log(${size})
+// 	         var title = "데이터 " + (i + 1);
+// 	         var lat = Math.random() * 90; // 임의의 위도 생성
+// 	         var lng = Math.random() * 180; // 임의의 경도 생성
+	         
+	         positions.push({
+	             title: title,
+	             latlng: new kakao.maps.LatLng(lat, lng)
+	         });
+	     }        
+
+//         // 데이터를 저장한 변수를 positions 배열에 담음
+//         var positions = [{
+//         	title: title, 
+//             latlng: new kakao.maps.LatLng(parseFloat(lat), parseFloat(lng))
+// 		    }
+//         ]
+        console.log(positions);
 		// 마커 이미지의 이미지 주소입니다
 		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 		    
