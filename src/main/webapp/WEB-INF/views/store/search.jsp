@@ -61,38 +61,21 @@
                 </div>
             </div>
         </section>
-        <footer class="flex">
-            <section>
-                <ul id="bottomMenu1" class="footers">
-                    <li><a href="#">1:1 문의</a></li>
-                    <li><a href="#">자주묻는질문</a></li>
-                    <li><a href="#">이용약관</a></li>
-                    <li><a href="#">개인정보처리방침</a></li>
-                    <li><a href="#">위치서비스기반이용약관</a></li>
-                </ul>
-                <ul id="bottomMenu2">
-                    <li>사업자 등록번호 : 303-81-09535 비알코리아(주) 대표이사 이주연
-                        서울특별시 서초구 남부순환로 2620(양재동 11-149번지)
-                    </li>
-                    <li>TEL : 080-555-3131 개인정보관이책임자 : 김경우</li>
-                    <li>Copyrightⓒ 2016 BRKOREA Company. All Rights Reserved.</li>
-                </ul>
-            </section>
-        </footer>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
     </div>
 	<script type="text/javascript">
     <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
 		
 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+			center: new kakao.maps.LatLng(37.715133, 126.734086), //지도의 중심좌표.
 			level: 3 //지도의 레벨(확대, 축소 정도)
 		};
 	
 		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 		
 		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+// 		var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
 
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
@@ -105,45 +88,32 @@
 	    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 	    // marker.setMap(null); 	
 	    
-	    // 마커를 표시할 위치와 title 객체 배열입니다 
-// 		var positions = [
-// 		    {
-// 		        title: '카카오', 
-// 		        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-// 		    },
-// 		    {
-// 		        title: '생태연못', 
-// 		        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-// 		    },
-// 		    {
-// 		        title: '텃밭', 
-// 		        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-// 		    },
-// 		    {
-// 		        title: '근린공원',
-// 		        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-// 		    }
-// 		];
-	    
 	    // 컨트롤러에서 보낸 데이터를 저장받는 변수
-        
-        // 데이터들을 저장할 배열 선언
-        var positions = [];
+	    
+    // JSON 데이터를 JavaScript 배열로 파싱합니다.
+    var jsonDataArray = ${jSList };
 
-	     // 100개의 데이터를 추가하는 for 루프
-	     for (var i = 0; i < ${size }; i++) {
-        var title =  "${title }";
-        var address =  "${address }";
-        var lat =  "${lat }";
-        var lng =  "${lng }";
-        console.log(${size})
-// 	         var title = "데이터 " + (i + 1);
-// 	         var lat = Math.random() * 90; // 임의의 위도 생성
-// 	         var lng = Math.random() * 180; // 임의의 경도 생성
-	         
+        var positions = [];
+    // 배열을 반복하여 모든 데이터를 처리합니다.
+    for (var i = 0; i < jsonDataArray.length; i++) {
+        var storeData = jsonDataArray[i];
+
+        // 필요한 정보 추출
+        var storeNo = storeData.storeNo;
+        var storeName = storeData.storeName;
+        var storeAddress = storeData.storeAddress;
+        var storeTell = storeData.storeTell;
+        var storeLat = storeData.storeLat;
+        var storeLng = storeData.storeLng;
+
+        // 추출한 정보를 원하는 방식으로 사용합니다.
+        
+//         // 데이터들을 저장할 배열 선언
+
+// 여기에서 필요한 작업을 수행할 수 있습니다.
 	         positions.push({
-	             title: title,
-	             latlng: new kakao.maps.LatLng(lat, lng)
+	             title: storeName,
+	             latlng: new kakao.maps.LatLng(storeLat, storeLng)
 	         });
 	     }        
 
@@ -153,7 +123,20 @@
 //             latlng: new kakao.maps.LatLng(parseFloat(lat), parseFloat(lng))
 // 		    }
 //         ]
-        console.log(positions);
+        console.log(positions);	    
+        
+
+// 	     // 100개의 데이터를 추가하는 for 루프
+// 	     for (var i = 0; i < ${jSize }; i++) {
+//         var title =  "${title }";
+//         var address =  "${address }";
+//         var lat =  "${lat }";
+//         var lng =  "${lng }";
+//         console.log(${size})
+// // 	         var title = "데이터 " + (i + 1);
+// // 	         var lat = Math.random() * 90; // 임의의 위도 생성
+// // 	         var lng = Math.random() * 180; // 임의의 경도 생성
+	         
 		// 마커 이미지의 이미지 주소입니다
 		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 		    
